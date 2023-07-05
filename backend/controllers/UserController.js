@@ -1,6 +1,10 @@
 const User = require('../models/User')
 const bcrypt = require("bcryptjs");
+const jwt = require('jsonwebtoken')
+
+// helpers
 const createUserToken = require("../helpers/create-user-token")
+const getToken = require('../helpers/get-token')
 
 module.exports = class UserController{
   static async login(req, res){
@@ -33,8 +37,13 @@ module.exports = class UserController{
 
   static async checkUser(req, res){
     let currentUser 
-    console.log(req.headers.authorization)
     if(req.headers.authorization){
+      const token = getToken(req)
+      const decoded = jwt.verify(token, 'nossosecret')
+
+      currentUser = await User.findByPk(decoded.id)
+
+      currentUser.password = undefined
 
     }else{
       currentUser = null
@@ -42,6 +51,26 @@ module.exports = class UserController{
     res.status(200).send(currentUser)
   }
 
+  static async getUserById(req, res){
+    const id = req.params.id
+    
+    const user = await User.findByPk(id, {
+      attributes: { exclude: ['password'] }
+    });
+
+    if(!user){
+      res.status(422).json({
+        message: 'Usuário não encontrado!'
+      })
+    }
+    res.status(200).json({ user })
+  }
+
+  static async editUser(req, res){
+    res.status(200).json({
+      message: 'Deu certo o update'
+    })
+  }
 
   static async register(req, res){
     const { name, cpf, rg, telefone, email, password, confirmpassword, nivel} = req.body
