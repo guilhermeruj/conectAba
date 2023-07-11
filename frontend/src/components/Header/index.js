@@ -4,7 +4,7 @@ import './style.css'
 function Header() {
   return (
     <header>
-      <h2>Desenvolvedor react</h2>
+      <h2>Conect Aba</h2>
       <div className="menu">
         <Link to="/">Home</Link>
         <Link to="/login">Login</Link>

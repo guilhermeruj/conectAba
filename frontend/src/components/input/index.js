@@ -1,11 +1,10 @@
-import React from 'react';
 import './style.css';
 
-const Inputs = ({ label, type, placeholder, value, onChange }) => {
+const Inputs = ({ label, type, name, placeholder, handleOnChage , value, multiple }) => {
   return (
     <div className="input-container">
-      <label>{label}:</label>
-      <input type={type} placeholder={placeholder} value={value} onChange={onChange} />
+      <label htmlFor='{name}'>{label}:</label>
+      <input type={type} name={name} id={name} placeholder={placeholder} onChange={handleOnChage } value={value} {...(multiple ? {multiple}: '')}/>
     </div>
   );
 };

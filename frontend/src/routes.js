@@ -2,7 +2,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 import Home from "./pages/Home";
 import Login from "./pages/Login"
-import Cadastro from "./pages/Cadastro";
+import Register from "./pages/Register";
 
 import Header from "./components/Header";
 
@@ -14,7 +14,7 @@ function RoutesApp() {
       <Routes>
         <Route path='/' element={<Home />} />
         <Route path='/login' element={<Login />} />
-        <Route path='/Cadastro' element={<Cadastro/>}/>
+        <Route path='/cadastro' element={<Register/>}/>
       </Routes>
     </BrowserRouter>
   );
