@@ -5,7 +5,7 @@ import Login from "./pages/Login"
 import Register from "./pages/Register";
 
 import Header from "./components/Header";
-
+import Footer from "./components/Footer"
 
 function RoutesApp() {
   return (
@@ -16,6 +16,7 @@ function RoutesApp() {
         <Route path='/login' element={<Login />} />
         <Route path='/cadastro' element={<Register/>}/>
       </Routes>
+      <Footer />
     </BrowserRouter>
   );
 }

@@ -47,7 +47,6 @@ function handleOnChage(e){};
                 placeholder="Digite o email"
                 handleOnChage ={handleOnChage }
             />
-            {/*
             <Input
                 label="Senha"
                 type="password"
@@ -62,15 +61,7 @@ function handleOnChage(e){};
                 placeholder="Digite a senha novamente"
                 handleOnChage ={handleOnChage }
             />
-            <Select
-                label="Nível de Acesso"
-                name="nivel"
-                handleOnChage ={handleOnChage }
-            >
-                <option value="user">Usuário</option>
-                <option value="adm">Administrador</option>
-            </Select>
-            <Button onClick=''>Cadastrar</Button>*/}
+            <Button onClick=''>Cadastrar</Button>
             <Button onClick=''>Cadastrar</Button>
         </form> 
     </div>
