@@ -73,33 +73,24 @@ module.exports = class UserController{
   }
 
   static async register(req, res){
-    const { name, cpf, rg, telefone, email, password, confirmpassword, nivel} = req.body
+    const { name, cpf, rg, cnpj, fone, email, registro, diplomas, certificado, cartaovacina, contatoemergencia, contratos, password, confirmpassword, nivel} = req.body
     if(!name){
-      res.status(422).json({message: 'O nome é obrigadorio'})
+      res.status(422).json({message: 'O nome é obrigatorio'})
       return
     }
-    if(!cpf){
-      res.status(422).json({message: 'O cpf é obrigadorio'})
-      return
-    }
-    if(!rg){
-      res.status(422).json({message: 'O rg é obrigadorio'})
-      return
-    }
-    if(!telefone){
-      res.status(422).json({message: 'O telefone é obrigadorio'})
-      return
+    if(!fone){
+      res.status(422).json({message: 'O Telefone é obrigatorio'})
     }
     if(!email){
-      res.status(422).json({message: 'O email é obrigadorio'})
+      res.status(422).json({message: 'O email é obrigatorio'})
       return
     }
     if(!password){
-      res.status(422).json({message: 'O password é obrigadorio'})
+      res.status(422).json({message: 'O password é obrigatorio'})
       return
     }
     if(!nivel){
-      res.status(422).json({message: 'O nivel é obrigadorio'})
+      res.status(422).json({message: 'O nivel é obrigatorio'})
       return
     }
     if(password !== confirmpassword){
@@ -121,8 +112,15 @@ module.exports = class UserController{
       name,
       cpf,
       rg,
-      telefone,
+      cnpj,
+      fone,
       email,
+      registro,
+      diplomas,
+      certificado,
+      cartaovacina,
+      contatoemergencia,
+      contratos,
       password: hashedPassaword,
       nivel,
     };

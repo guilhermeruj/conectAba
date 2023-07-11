@@ -4,7 +4,7 @@ const db = require('../db/conn')
 const User = db.define('User', {
   name: {
     type: DataTypes.STRING,
-    allowNull: false
+    allowNull: false,
   },
   cpf: {
     type: DataTypes.STRING,
@@ -16,23 +16,50 @@ const User = db.define('User', {
     allowNull: false,
     unique: true // RG deve ser único para cada usuário
   },
-  telefone: {
+  cnpj: {
     type: DataTypes.STRING,
-    allowNull: false
+    allowNull: true
   },
-  email: {
+  fone: {
     type: DataTypes.STRING,
     allowNull: false,
     unique: true // Email deve ser único para cada usuário
   },
-  password: {
+  email: {
     type: DataTypes.STRING,
     allowNull: false
   },
-  nivel: {
-    type: DataTypes.ENUM('adm', 'user'), // Pode ser apenas admin ou user
-    allowNull: false,
-    defaultValue: 'user' // Nível padrão é 'user'
+  registro: {
+    type: DataTypes.STRING,
+    allowNull: true
+  },
+  diplomas: {
+    type: DataTypes.STRING,
+    allowNull: true
+  },
+  certificado: {
+    type: DataTypes.STRING,
+    allowNull: true
+  },
+  cartaovacina: {
+    type: DataTypes.STRING,
+    allowNull: true
+  },
+  contatoemergencia: {
+    type: DataTypes.STRING,
+    allowNull: true
+  },
+  contratos:{
+    type: DataTypes.STRING,
+    allowNull: true
+  },
+  senha:{
+    type: DataTypes.STRING,
+    allowNull: false
+  },
+  nivel:{
+    type: DataTypes.STRING,
+    allowNull: false
   }
 });
 
