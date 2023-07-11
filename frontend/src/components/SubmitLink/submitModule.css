@@ -1,7 +1,7 @@
-button {
+.custom-button {
     margin-top: 2.5rem;
     width: 100%;
-    background-color: #fff;
+    background-color: rgba(205, 206, 206, 0.67);
     color: #080710;
     padding: 0.9375rem 0;
     font-size: 1.125rem;
@@ -10,7 +10,7 @@ button {
     transition: background-color 0.7s, color 0.5s;
   }
   
-  button:hover {
+.custom-button:hover {
     background-color: royalblue;
     color: #fff;
   }

@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import './loginModule.css';
 import '../../style.css';
 import Inputs from '../../components/input';
-import Button from '../../components/botao';
+import SubmitLink from '../../components/SubmitLink';
 
 const Login = () => {
   const [email, setEmail] = useState('');
@@ -23,8 +23,7 @@ const Login = () => {
   };
 
   return (
-    <div className="card">
-      <div className="shape"></div>
+    <div className="card-1">
       <form>
         <h3>Conect-ABA Login </h3>
         <Inputs
@@ -42,7 +41,7 @@ const Login = () => {
           onChange={(e) => setSenha(e.target.value)}
         />
         
-        <Button onClick={handleLogin}>Login</Button>
+        <SubmitLink/>
         
       </form>
     </div>
