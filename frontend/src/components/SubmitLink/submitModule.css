@@ -8,6 +8,7 @@
     border-radius: 5px;
     cursor: pointer;
     transition: background-color 0.7s, color 0.5s;
+    text-decoration: none;
   }
   
 .custom-button:hover {

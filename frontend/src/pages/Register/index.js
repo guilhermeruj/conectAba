@@ -70,7 +70,7 @@ function handleOnChage(e){};
                 className='col-6'
             />
             <div className='col-12'>
-                <SubmitLink/>
+                <SubmitLink>Cadastrar</SubmitLink>
             </div>
         </form> 
     </div>
