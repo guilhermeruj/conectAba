@@ -1,5 +1,5 @@
-
-import './style.css';
+// Componente select para opçoes 
+import './selectModule.css';
 
 const Select = ({ label, options, value, onChange }) => {
   return (

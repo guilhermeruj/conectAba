@@ -1,4 +1,5 @@
-import './style.css';
+// Componente Input para para formularios, que aceita diversos tipos 
+import './inputModule.css';
 
 const Inputs = ({ label, type, name, placeholder, handleOnChage , value, multiple }) => {
   return (

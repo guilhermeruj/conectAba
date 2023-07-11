@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import './style.css';
+import './loginModule.css';
+import '../../style.css';
 import Inputs from '../../components/input';
 import Button from '../../components/botao';
 
@@ -22,7 +23,7 @@ const Login = () => {
   };
 
   return (
-    <div className="container">
+    <div className="card">
       <div className="shape"></div>
       <form>
         <h3>Conect-ABA Login </h3>
