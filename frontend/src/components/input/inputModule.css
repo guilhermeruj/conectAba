@@ -1,22 +1,22 @@
 label {
-    display: block;
-    margin-top: 2rem;
-    font-size: 1rem;
-    font-weight: 500;
-  }
-  
-  input {
-    display: block;
-    height: 3.125rem;
-    width: 100%;
-    background-color: rgb(161, 161, 161);
-    border-radius: 10px;
-    padding: 0 1rem;
-    margin-top: 0.5rem;
-    font-size: 0.875rem;
-    font-weight: 300;
-  }
-  
-  ::placeholder {
-    color: #5b5b5b;
-  }
+  display: block;
+  margin-top: 2rem;
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+input {
+  display: block;
+  height: 3.125rem;
+  width: 100%;
+  background-color: rgb(161, 161, 161);
+  border-radius: 10px;
+  padding: 0 1rem;
+  margin-top: 0.5rem;
+  font-size: 0.875rem;
+  font-weight: 300;
+}
+
+::placeholder {
+  color: #5b5b5b;
+}
