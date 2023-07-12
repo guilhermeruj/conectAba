@@ -4,6 +4,7 @@ import Inputs from '../../components/input';
 // import Select from '../../components/select';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
+import { Context } from '../../context/UserContext';
 
 function Register(){
     const [user, setUser] = useState('')
