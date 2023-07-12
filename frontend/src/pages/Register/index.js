@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import './style.css';
 import Inputs from '../../components/input';
 // import Select from '../../components/select';
@@ -7,6 +7,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 function Register(){
     const [user, setUser] = useState('')
+    const { register } = useContext(Context)
     // Creation of the Registration Object
     function handleOnChage(e){
         setUser({...user, [e.target.name]: e.target.value});    
@@ -15,6 +16,8 @@ function Register(){
     function handleSubmit(e){
         e.preventDefault()
         // enviar o usuario para o banco de dados
+        register(user)
+        
     }
 
   return (
