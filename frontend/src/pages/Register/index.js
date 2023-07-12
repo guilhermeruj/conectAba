@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
 import './style.css';
-import Input from '../../components/input';
+import Inputs from '../../components/input';
 // import Select from '../../components/select';
-import SubmitLink from '../../components/SubmitLink';
+import 'bootstrap/dist/css/bootstrap.min.css';
+
 
 function Register(){
     const [user, setUser] = useState('')
@@ -17,64 +18,78 @@ function Register(){
     }
 
   return (
-    <div className='card-2'>
-    {/* <div className='shape'></div>     */}
-        <form className='row' onSubmit={handleSubmit}>
-            <h3 className='col-12'>Formulário de Cadastro</h3>
-            <Input
-                label="Nome Completo"
-                type="text"
-                name="name"
-                placeholder="Digite o nome completo"
-                handleOnChage={handleOnChage}
-            />
-            <Input
-                label="Email"
-                type="email"
-                name="email"
-                placeholder="Digite o email"
-                handleOnChage={handleOnChage}
-            />
-            <Input
-                label="CPF"
-                type="text"
-                name="cpf"
-                placeholder="Digite o CPF"
-                handleOnChage={handleOnChage}
-            />
-            <Input
-                label="RG"
-                type="text"
-                name="rg"
-                placeholder="Digite o RG"
-                handleOnChage={handleOnChage}
-            />
-            <Input
-                label="Telefone"
-                type="text"
-                name="fone"
-                placeholder="Digite o telefone"
-                handleOnChage={handleOnChage}
-            />
-            
-            <Input
-                label="Senha"
-                type="password"
-                name="password"
-                placeholder="Digite a senha"
-                handleOnChage={handleOnChage}
-            />
-            <Input
-                label="Confirme a senha"
-                type="password"
-                name="confirmpassword"
-                placeholder="Digite a senha novamente"
-                handleOnChage={handleOnChage}
-            />
-            <div className='col-12'>
-                <SubmitLink>Cadastrar</SubmitLink>
-            </div>
-        </form> 
+    <div className=''> 
+        <div className='card-2'>
+            <form className='row' onSubmit={handleSubmit}>
+                <h5 className='col-12 text-center'>Formulário de Cadastro</h5>
+                <div className='col-6'>
+                <Inputs
+                    label="Nome Completo"
+                    type="text"
+                    name="name"
+                    placeholder="Digite o nome completo"
+                    handleOnChage={handleOnChage}
+                />
+                </div>
+                <div className='col-6'>
+                <Inputs
+                    label="Email"
+                    type="email"
+                    name="email"
+                    placeholder="Digite o email"
+                    handleOnChage={handleOnChage}
+                />
+                </div>
+                <div className='col-4'>
+                <Inputs
+                    label="CPF"
+                    type="text"
+                    name="cpf"
+                    placeholder="Digite o CPF"
+                    handleOnChage={handleOnChage}
+                />
+                </div>
+                <div className='col-4'>
+                <Inputs
+                    label="RG"
+                    type="text"
+                    name="rg"
+                    placeholder="Digite o RG"
+                    handleOnChage={handleOnChage}
+                />
+                </div>
+                <div className='col-4'>
+                <Inputs
+                    label="Telefone"
+                    type="text"
+                    name="fone"
+                    placeholder="Digite o telefone"
+                    handleOnChage={handleOnChage}
+                />
+                </div>
+                <div className='col-6'>  
+                <Inputs
+                    label="Senha"
+                    type="password"
+                    name="password"
+                    placeholder="Digite a senha"
+                    handleOnChage={handleOnChage}
+                />
+                </div>  
+                <div className='col-6'> 
+                <Inputs
+                    label="Confirme a senha"
+                    type="password"
+                    name="confirmpassword"
+                    placeholder="Digite a senha novamente"
+                    handleOnChage={handleOnChage}
+                />
+                </div>
+                <div className='col-12'>
+                    <Inputs type="submit" value="Cadastrar" className="custom-button"/> 
+                </div>
+            </form> 
+        </div>
     </div>
   );
 };

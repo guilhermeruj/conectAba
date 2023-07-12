@@ -17,18 +17,35 @@ body {
 
 
 }
+/* Define o estilo do Botão */
+.custom-button {
+  width: 100% !important;
+  background-color: rgba(205, 206, 206, 0.67) !important;
+  color: #080710 !important;
+  padding: 0.9375rem 0 !important;
+  font-size: 1.125rem !important;
+  border-radius: 5px !important;
+  cursor: pointer !important;
+  transition: background-color 0.7s, color 0.5s !important;
+  text-decoration: none !important;
+}
+
+.custom-button:hover {
+  background-color: royalblue !important;
+  color: #fff !important;
+}
+
+
 /* Define o padrao dos cards */
 /* Sets the default for cards */
 .card-1{
   width: 100%;
   height: 550px;
-  margin-top:5%;
   position: absolute;
 }
 .card-2{
   width: 100%;
   height: 550px;
-  margin-top:25%;
   position: absolute;
 }
 /* Esse código CSS define estilos para um formulário*/

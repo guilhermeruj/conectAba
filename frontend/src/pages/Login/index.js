@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import './loginModule.css';
 import '../../style.css';
 import Inputs from '../../components/input';
-import SubmitLink from '../../components/SubmitLink';
 
 const Login = () => {
   const [email, setEmail] = useState('');
@@ -41,7 +40,9 @@ const Login = () => {
           onChange={(e) => setSenha(e.target.value)}
         />
         
-        <SubmitLink/>
+        <div className='col-12'>
+            <Inputs type="submit" value="Logar" className="custom-button"/> 
+        </div>
         
       </form>
     </div>
