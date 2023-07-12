@@ -9,14 +9,17 @@ select {
   display: block;
   height: 3.125rem;
   width: 100%;
-  background-color: rgb(161, 161, 161);
+  background-color: rgba(205, 206, 206, 0.67);
   border-radius: 10px;
   padding: 0 1rem;
   margin-top: 0.5rem;
   font-size: 0.875rem;
   font-weight: 300;
+  
 }
 
 option {
   color: #5b5b5b;
+  border: none;
+  border-radius:5px ;
 }

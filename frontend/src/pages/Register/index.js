@@ -1,10 +1,11 @@
 import React, { useContext, useState } from 'react';
-import './style.css';
+import './registerModule.css';
 import Inputs from '../../components/input';
-// import Select from '../../components/select';
+import Select from '../../components/select';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 import { Context } from '../../context/UserContext';
+
 
 function Register(){
     const [user, setUser] = useState('')
@@ -64,10 +65,37 @@ function Register(){
                 </div>
                 <div className='col-4'>
                 <Inputs
-                    label="Telefone"
-                    type="text"
+                    label="CNPJ"
+                    type="number"
+                    name="cnpj"
+                    placeholder="Digite o CNPJ"
+                    handleOnChage={handleOnChage}
+                />
+                </div>
+                <div className='col-12'>
+                <Inputs
+                    label="Telefone Pessoal"
+                    type="number"
                     name="fone"
-                    placeholder="Digite o telefone"
+                    placeholder="Digite o seu telefone"
+                    handleOnChage={handleOnChage}
+                />
+                </div>
+                <div className='col-6'>
+                <Inputs
+                    label="Nome do contato de emergência"
+                    type="text"
+                    name="emergency_name"
+                    placeholder="Nome do contato de emergência"
+                    handleOnChage={handleOnChage}
+                />
+                </div>
+                <div className='col-6'>
+                <Inputs
+                    label="Telefone Emergência"
+                    type="number"
+                    name="emergency_number"
+                    placeholder="Digite o telefone de emergêrncia"
                     handleOnChage={handleOnChage}
                 />
                 </div>
@@ -89,7 +117,18 @@ function Register(){
                     handleOnChage={handleOnChage}
                 />
                 </div>
-                <div className='col-12'>
+                <div className='col-6'>
+                <Select
+                    label="Selecione o nível de acesso"
+                    name="mySelect"
+                    options={[
+                        { name: "option1", label: "Opção 1" },
+                        { name: "option2", label: "Opção 2" },
+                        { name: "option3", label: "Opção 3" },
+                    ]}
+                />
+                </div>
+                <div className='col-6'>
                     <Inputs type="submit" value="Cadastrar" className="custom-button"/> 
                 </div>
             </form> 
