@@ -21,7 +21,7 @@ function Register(){
     }
 
   return (
-    <div className=''> 
+    <div className='container'> 
         <div className='card-2'>
             <form className='row' onSubmit={handleSubmit}>
                 <h5 className='col-12 text-center'>Formulário de Cadastro</h5>
