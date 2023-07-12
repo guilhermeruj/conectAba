@@ -1,11 +1,17 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import './style.css';
 import Input from '../../components/input';
+import bootstrap from 'bootstrap'
 // import Select from '../../components/select';
-import SubmitLink from '../../components/SubmitLink';
+// import SubmitLink from '../../components/SubmitLink';
+
+/* contexts */
+
+import { Context } from '../../context/UserContext';
 
 function Register(){
     const [user, setUser] = useState('')
+    const { register } = useContext(Context)
     // Creation of the Registration Object
     function handleOnChage(e){
         setUser({...user, [e.target.name]: e.target.value});    
@@ -14,6 +20,8 @@ function Register(){
     function handleSubmit(e){
         e.preventDefault()
         // enviar o usuario para o banco de dados
+        register(user)
+        
     }
 
   return (
@@ -71,9 +79,11 @@ function Register(){
                 placeholder="Digite a senha novamente"
                 handleOnChage={handleOnChage}
             />
-            <div className='col-12'>
-                <SubmitLink/>
-            </div>
+            <Input
+            type="submit"
+            value='Cadastrar'
+            className="btn btn-sucess"
+            />
         </form> 
     </div>
   );
