@@ -1,13 +1,13 @@
-// Componente select para opçoes 
+import React from 'react';
 import './selectModule.css';
 
-const Select = ({ label, options, onChange, name }) => {
+const Select = ({ label, options, onChange, name, value }) => {
   return (
     <div className="select-container">
       <label>{label}:</label>
-      <select className="select-input"  name={name} onChange={onChange}>
+      <select className="select-input" name={name} onChange={onChange} value={value}>
         {options.map((option, index) => (
-          <option key={index} name={option.name}>
+          <option key={index} value={option.value}>
             {option.label}
           </option>
         ))}

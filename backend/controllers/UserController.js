@@ -80,6 +80,7 @@ module.exports = class UserController{
     }
     if(!fone){
       res.status(422).json({message: 'O Telefone é obrigatorio'})
+      return
     }
     if(!email){
       res.status(422).json({message: 'O email é obrigatorio'})
@@ -95,6 +96,7 @@ module.exports = class UserController{
     }
     if(password !== confirmpassword){
       res.status(422).json({message: 'As senhas não conferem'})
+      return
     }
 
      // check if user exists

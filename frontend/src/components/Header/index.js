@@ -10,7 +10,7 @@ function Header() {
         <Link to="/login">Login</Link>
         <Link to="/cadastro">Cadastrar</Link>
       </div>
-    </header>
+   </header>
   );
 }
 

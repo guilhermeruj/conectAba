@@ -53,7 +53,7 @@ const User = db.define('User', {
     type: DataTypes.STRING,
     allowNull: true
   },
-  senha:{
+  password:{
     type: DataTypes.STRING,
     allowNull: false
   },

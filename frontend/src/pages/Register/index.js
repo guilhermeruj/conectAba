@@ -8,18 +8,18 @@ import { Context } from '../../context/UserContext';
 
 
 function Register(){
-    const [user, setUser] = useState('')
+    const [user, setUser] = useState({})
     const { register } = useContext(Context)
     // Creation of the Registration Object
-    function handleOnChage(e){
+    function handleOnChange(e){
         setUser({...user, [e.target.name]: e.target.value});    
     };
     // Function to submit the registration
     function handleSubmit(e){
         e.preventDefault()
+        console.log(user)
         // enviar o usuario para o banco de dados
         register(user)
-        
     }
 
   return (
@@ -33,7 +33,7 @@ function Register(){
                     type="text"
                     name="name"
                     placeholder="Digite o nome completo"
-                    handleOnChage={handleOnChage}
+                    handleOnChange={handleOnChange}
                 />
                 </div>
                 <div className='col-6'>
@@ -42,7 +42,7 @@ function Register(){
                     type="email"
                     name="email"
                     placeholder="Digite o email"
-                    handleOnChage={handleOnChage}
+                    handleOnChange={handleOnChange}
                 />
                 </div>
                 <div className='col-4'>
@@ -51,7 +51,7 @@ function Register(){
                     type="text"
                     name="cpf"
                     placeholder="Digite o CPF"
-                    handleOnChage={handleOnChage}
+                    handleOnChange={handleOnChange}
                 />
                 </div>
                 <div className='col-4'>
@@ -60,44 +60,53 @@ function Register(){
                     type="text"
                     name="rg"
                     placeholder="Digite o RG"
-                    handleOnChage={handleOnChage}
+                    handleOnChange={handleOnChange}
                 />
                 </div>
+                
                 <div className='col-4'>
                 <Inputs
                     label="CNPJ"
                     type="number"
                     name="cnpj"
                     placeholder="Digite o CNPJ"
-                    handleOnChage={handleOnChage}
+                    handleOnChange={handleOnChange}
                 />
                 </div>
-                <div className='col-12'>
+                <div className='col-12'><hr/></div>
+                <div className='col-6'>
                 <Inputs
                     label="Telefone Pessoal"
                     type="number"
                     name="fone"
                     placeholder="Digite o seu telefone"
-                    handleOnChage={handleOnChage}
-                />
-                </div>
-                <div className='col-6'>
-                <Inputs
-                    label="Nome do contato de emergência"
-                    type="text"
-                    name="emergency_name"
-                    placeholder="Nome do contato de emergência"
-                    handleOnChage={handleOnChage}
+                    handleOnChange={handleOnChange}
                 />
                 </div>
                 <div className='col-6'>
                 <Inputs
                     label="Telefone Emergência"
                     type="number"
-                    name="emergency_number"
+                    name="contatoemergencia"
                     placeholder="Digite o telefone de emergêrncia"
-                    handleOnChage={handleOnChage}
+                    handleOnChange={handleOnChange}
                 />
+                </div>
+               
+                <div className='col-12'>
+                <hr />
+                <Select
+                    label="Nível de acesso"
+                    name="nivel"
+                    options={[
+                        { value: "administrador", label: "Administrador" },
+                        { value: "graficos", label: "Gráficos" },
+                        { value: "at", label: "AT" },
+                    ]}
+                    onChange={handleOnChange}
+                    value={user.nivel}
+                />
+                <hr/>
                 </div>
                 <div className='col-6'>  
                 <Inputs
@@ -105,7 +114,7 @@ function Register(){
                     type="password"
                     name="password"
                     placeholder="Digite a senha"
-                    handleOnChage={handleOnChage}
+                    handleOnChange={handleOnChange}
                 />
                 </div>  
                 <div className='col-6'> 
@@ -114,21 +123,10 @@ function Register(){
                     type="password"
                     name="confirmpassword"
                     placeholder="Digite a senha novamente"
-                    handleOnChage={handleOnChage}
+                    handleOnChange={handleOnChange}
                 />
                 </div>
-                <div className='col-6'>
-                <Select
-                    label="Selecione o nível de acesso"
-                    name="mySelect"
-                    options={[
-                        { name: "option1", label: "Opção 1" },
-                        { name: "option2", label: "Opção 2" },
-                        { name: "option3", label: "Opção 3" },
-                    ]}
-                />
-                </div>
-                <div className='col-6'>
+                <div className='col-12'>
                     <Inputs type="submit" value="Cadastrar" className="custom-button"/> 
                 </div>
             </form> 
