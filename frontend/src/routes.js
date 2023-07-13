@@ -23,7 +23,7 @@ function RoutesWithHeaderFooter() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/login" element={<Login />} />
-        <Route path="/cadastro" element={<Register />} />
+        <Route path="/register" element={<Register />} />
       </Routes>
       {!isLoginPage && <Footer />} {/* Renderiza o Footer apenas se não estiver na tela de login */}{/* Renders the Footer only if not on the login page */}
     </>

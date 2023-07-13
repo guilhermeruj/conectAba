@@ -13,10 +13,10 @@ function Login(){
   };
 
   return (
-    <div className='container-login'>
-      <div className="card-login">
+    <div className="container-login">
+      <div className="card-login style-cards">
         <form className='row'>
-          <h3>Conect-ABA Login </h3>
+          <h3 className='form-label'>Conect-ABA Login </h3>
           <Inputs
             label="Email"
             type="text"

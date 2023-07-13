@@ -2,7 +2,8 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    margin: 35% 0;
+    /* margin: 35% 0; */
+    margin-top: 15%;
     height: auto;
   }
 

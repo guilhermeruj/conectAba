@@ -24,9 +24,9 @@ function Register(){
 
   return (
     <div className='container-register'> 
-        <div className='card-register'>
+        <div className='card-register style-cards'>
             <form className='row' onSubmit={handleSubmit}>
-                <h5 className='col-12 text-center'>Formulário de Cadastro</h5>
+                <h5 className='col-12 text-center form-label'>Formulário de Cadastro</h5>
                 <div className='col-6'>
                 <Inputs
                     label="Nome Completo"

@@ -4,62 +4,42 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  
 }
 /* Define os padrões iniciais para o body */
 /* Sets the initial defaults for the body */
 body {
-  /* display: flex;
-  align-items: center; */
+  display: flex;
   justify-content: center;
-  text-align: center;
+  align-items: center;
   height: 100vh;
-  background-image: radial-gradient( circle farthest-corner at 10% 20%,  rgba(234,249,249,0.67) 0.1%, rgba(239,249,251,0.63) 90.1% );
-
-
+  background-color: #fff;
 }
-/* div containing the cards */
-/* div que contem os cards */
 
 
 /* Define o padrao dos cards */
 /* Sets the default for cards */
 .card-login {
-  width: 70%;
-  padding: 10px;
+  width: 80%;
   border-radius: 6px;
-  position: absolute;
 }
 .card-register {
-  width: 100%;
-  padding: 20px;
+  width: 80%;
   border-radius: 6px;
-  position: absolute;
 }
-/* Esse código CSS define estilos para um formulário*/
-/* This CSS code defines styles for a form*/
-form {
-  width: 70%;
+.style-cards{
   height: auto;
-  background-color: rgba(229, 229, 229, 0.13);
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  border-radius: 10px;
   backdrop-filter: blur(10px);
   border: 2px solid rgba(255, 255, 255, 0.1);
   box-shadow: 0 0 40px rgba(8, 7, 16, 0.6);
   padding: 5% 8%;
-} 
-form * {
-  font-family: 'Poppins', sans-serif;
-  color: #393939;
-  letter-spacing: 0.5px;
-  outline: none;
-  border: none;
 }
-
-form h3 {
+/* Esse código CSS define estilos para um formulário*/
+/* This CSS code defines styles for a form*/
+form{
+  font-family: 'Poppins', sans-serif;
+}
+.form-label {
   font-size: 2.5rem;
   font-weight: 500;
   line-height: 2.625rem;

@@ -15,6 +15,10 @@ select {
   margin-top: 0.5rem;
   font-size: 0.875rem;
   font-weight: 300;
+  letter-spacing: 0.5px;
+  outline: none;
+  border: none;
+
   
 }
 
