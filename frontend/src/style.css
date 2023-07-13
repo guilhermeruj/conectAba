@@ -26,14 +26,12 @@ body {
 .card-login {
   width: 70%;
   padding: 10px;
-  background-color: #fff;
   border-radius: 6px;
   position: absolute;
 }
 .card-register {
   width: 100%;
   padding: 20px;
-  background-color: #fff;
   border-radius: 6px;
   position: absolute;
 }
