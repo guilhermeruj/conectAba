@@ -12,7 +12,6 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
   background-color: #fff;
 }
 
@@ -20,7 +19,7 @@ body {
 /* Define o padrao dos cards */
 /* Sets the default for cards */
 .card-login {
-  width: 80%;
+  width: 50%;
   border-radius: 6px;
 }
 .card-register {
