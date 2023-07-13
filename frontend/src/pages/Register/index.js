@@ -23,8 +23,8 @@ function Register(){
     }
 
   return (
-    <div className='container'> 
-        <div className='card-2'>
+    <div className='container-register'> 
+        <div className='card-register'>
             <form className='row' onSubmit={handleSubmit}>
                 <h5 className='col-12 text-center'>Formulário de Cadastro</h5>
                 <div className='col-6'>

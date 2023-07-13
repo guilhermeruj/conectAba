@@ -1,10 +1,8 @@
-.container {
+.container-register {
     display: flex;
     justify-content: center;
     align-items: center;
-    /* margin-top: 5%;
-    margin-bottom: 5%; */
-    margin: 30% 0;
+    margin: 35% 0;
     height: auto;
   }
 

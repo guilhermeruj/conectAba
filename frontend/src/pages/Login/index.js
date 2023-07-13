@@ -14,7 +14,7 @@ function Login(){
 
   return (
     <div className='container-login'>
-      <div className="card-2">
+      <div className="card-login">
         <form className='row'>
           <h3>Conect-ABA Login </h3>
           <Inputs
