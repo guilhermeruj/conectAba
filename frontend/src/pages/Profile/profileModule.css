@@ -1,11 +1,10 @@
-.container-register {
+.container-profile{
     display: flex;
     justify-content: center;
     align-items: center;
-    margin: 1.5em 0;
-  }
-  .card-register {
+    margin: 2em;
+}
+.card-profile{
     width: 80%;
     border-radius: 6px;
-  }
-
+}

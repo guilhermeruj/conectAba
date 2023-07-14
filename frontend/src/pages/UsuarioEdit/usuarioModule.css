@@ -1,11 +1,10 @@
-.container-register {
+.container-user{
     display: flex;
     justify-content: center;
     align-items: center;
-    margin: 1.5em 0;
-  }
-  .card-register {
-    width: 80%;
+    margin: 2em;
+}
+.card-user{
+    width: 65%;
     border-radius: 6px;
-  }
-
+}

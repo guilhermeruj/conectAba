@@ -18,14 +18,14 @@ function Login(){
         <form className='row'>
           <h3 className='form-label'>Conect-ABA Login </h3>
           <Inputs
-            label="Email"
+            label="Email:"
             type="text"
             name="email"
             placeholder="Digite aqui seu email.."
             onChange={handleLogin}
           />
           <Inputs
-            label="Senha"
+            label="Senha:"
             type="password"
             name='password'
             placeholder="Digite aqui sua senha.."

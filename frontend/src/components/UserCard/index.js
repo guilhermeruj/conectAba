@@ -20,11 +20,11 @@ function UserCard() {
         <ul>
           <li>
             <BsFillPersonFill className="icon" />
-            <Link to="/login">Meu Perfil</Link>
+            <Link to="/">Meu Perfil</Link>
           </li>
           <li>
             <BsPencilSquare className="icon" />
-            <Link to="/login">Editar Perfil</Link>
+            <Link to="/user">Editar Perfil</Link>
           </li>
           <li>
             <BsEnvelopeFill className="icon" />

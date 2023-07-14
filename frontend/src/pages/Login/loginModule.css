@@ -5,3 +5,7 @@
     margin: 5% auto 0;
     height: auto;
   }
+  .card-login {
+    width: 50%;
+    border-radius: 6px;
+  }

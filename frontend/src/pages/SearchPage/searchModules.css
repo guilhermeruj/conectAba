@@ -1,11 +1,10 @@
-.container-register {
+.container-search{
     display: flex;
     justify-content: center;
     align-items: center;
     margin: 1.5em 0;
-  }
-  .card-register {
-    width: 80%;
+}
+.card-search {
+    width: 60%;
     border-radius: 6px;
   }
-

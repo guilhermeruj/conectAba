@@ -23,13 +23,13 @@ function Register(){
     }
 
   return (
-    <div className='container-register'> 
+    <div className='container-register '> 
         <div className='card-register style-cards'>
             <form className='row' onSubmit={handleSubmit}>
                 <h5 className='col-12 text-center form-label'>Formulário de Cadastro</h5>
                 <div className='col-6'>
                 <Inputs
-                    label="Nome Completo"
+                    label="Nome Completo:"
                     type="text"
                     name="name"
                     placeholder="Digite o nome completo"
@@ -38,7 +38,7 @@ function Register(){
                 </div>
                 <div className='col-6'>
                 <Inputs
-                    label="Email"
+                    label="Email:"
                     type="email"
                     name="email"
                     placeholder="Digite o email"
@@ -47,7 +47,7 @@ function Register(){
                 </div>
                 <div className='col-4'>
                 <Inputs
-                    label="CPF"
+                    label="CPF:"
                     type="text"
                     name="cpf"
                     placeholder="Digite o CPF"
@@ -56,8 +56,8 @@ function Register(){
                 </div>
                 <div className='col-4'>
                 <Inputs
-                    label="RG"
-                    type="text"
+                    label="RG:"
+                    type="number"
                     name="rg"
                     placeholder="Digite o RG"
                     handleOnChange={handleOnChange}
@@ -66,7 +66,7 @@ function Register(){
                 
                 <div className='col-4'>
                 <Inputs
-                    label="CNPJ"
+                    label="CNPJ:"
                     type="number"
                     name="cnpj"
                     placeholder="Digite o CNPJ"
@@ -76,7 +76,7 @@ function Register(){
                 <div className='col-12'><hr/></div>
                 <div className='col-6'>
                 <Inputs
-                    label="Telefone Pessoal"
+                    label="Telefone Pessoal:"
                     type="number"
                     name="fone"
                     placeholder="Digite o seu telefone"
@@ -85,7 +85,7 @@ function Register(){
                 </div>
                 <div className='col-6'>
                 <Inputs
-                    label="Telefone Emergência"
+                    label="Telefone Emergência:"
                     type="number"
                     name="contatoemergencia"
                     placeholder="Digite o telefone de emergêrncia"
@@ -96,7 +96,7 @@ function Register(){
                 <div className='col-12'>
                 <hr />
                 <Select
-                    label="Nível de acesso"
+                    label="Nível de acesso:"
                     name="nivel"
                     options={[
                         { value: "administrador", label: "Administrador" },
@@ -110,7 +110,7 @@ function Register(){
                 </div>
                 <div className='col-6'>  
                 <Inputs
-                    label="Senha"
+                    label="Senha:"
                     type="password"
                     name="password"
                     placeholder="Digite a senha"
@@ -119,15 +119,19 @@ function Register(){
                 </div>  
                 <div className='col-6'> 
                 <Inputs
-                    label="Confirme a senha"
+                    label="Confirme a senha:"
                     type="password"
                     name="confirmpassword"
                     placeholder="Digite a senha novamente"
                     handleOnChange={handleOnChange}
                 />
                 </div>
-                <div className='col-12'>
-                    <Inputs type="submit" value="Cadastrar" className="custom-button"/> 
+                <div className="col-12 mt-4">
+                    <div className="d-flex justify-content-center">
+                        <div className="col-6">
+                            <Inputs type="submit" value="Cadastrar" className="custom-button"/> 
+                        </div>
+                    </div>
                 </div>
             </form> 
         </div>

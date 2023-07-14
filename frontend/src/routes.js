@@ -1,10 +1,14 @@
 import React from 'react';
-import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom';
+import { BrowserRouter, Routes, Route, useLocation, Router } from 'react-router-dom';
 
 /* Paginas */
 import Home from './pages/Home';
 import Login from './pages/Login';
 import Register from './pages/Register';
+import UserPage from './pages/UsuarioEdit';
+import SearchUser from './pages/SearchPage';
+import Profile from './pages/Profile';
+
 
 /* components */
 import Header from './components/Header';
@@ -24,6 +28,9 @@ function RoutesWithHeaderFooter() {
         <Route path="/" element={<Home />} />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
+        <Route path="/user" element={<UserPage/>}/>
+        <Route path="/search-user" element={<SearchUser />} />
+        <Route path="/profile" element={<Profile/>}/> 
       </Routes>
       {!isLoginPage && <Footer />} {/* Renderiza o Footer apenas se não estiver na tela de login */}{/* Renders the Footer only if not on the login page */}
     </>
