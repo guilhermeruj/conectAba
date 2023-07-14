@@ -12,7 +12,7 @@ function Profile() {
   return (
     <div className='container-profile'>
       <div className='card-profile style-cards'>
-        
+      <h1 className='col-12 text-center'>Dados do Usuario</h1>
       </div>
     </div>
   );
