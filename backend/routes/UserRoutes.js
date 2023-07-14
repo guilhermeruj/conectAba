@@ -8,7 +8,7 @@ const verifytoken = require('../helpers/verify-token')
 router.post('/register', UserController.register)
 router.post('/login', UserController.login)
 router.get('/checkuser', UserController.checkUser)
-router.get('/:id', UserController.getUserById)
-router.patch('/edit/:id', verifytoken, UserController.editUser)
+router.get('/profile/:id', UserController.listProfile)
+router.patch('/edit/:id', UserController.editUser)
 
 module.exports = router

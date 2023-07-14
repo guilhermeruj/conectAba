@@ -5,6 +5,7 @@ const jwt = require('jsonwebtoken')
 // helpers
 const createUserToken = require("../helpers/create-user-token")
 const getToken = require('../helpers/get-token')
+const getUserByToken = require('../helpers/get-user-by-token')
 
 module.exports = class UserController{
   static async login(req, res){
@@ -51,25 +52,71 @@ module.exports = class UserController{
     res.status(200).send(currentUser)
   }
 
-  static async getUserById(req, res){
+  static async listProfile(req, res){
     const id = req.params.id
-    
-    const user = await User.findByPk(id, {
-      attributes: { exclude: ['password'] }
-    });
 
-    if(!user){
+    const perfil = await User.findOne({raw: true, where: {id: id}, attributes: { exclude: ['password'] }})
+
+    if(!perfil){
       res.status(422).json({
         message: 'Usuário não encontrado!'
       })
     }
-    res.status(200).json({ user })
+    res.status(200).json({ perfil })
   }
 
   static async editUser(req, res){
-    res.status(200).json({
-      message: 'Deu certo o update'
-    })
+    const id = req.params.id 
+     
+    //check if user exists 
+    // const token = getToken(req)
+    // const user = await getUserByToken(token)
+    // if(!user){
+    //   res.status(422).json({message: 'Usuário não encontrato'})
+    //   return
+    // }
+    const {name, cpf, rg, cnpj, fone, email, registro, diplomas, certificado, cartaovacina, contatoemergencia, contratos, } = req.body
+    let image = ''
+      // check id email has already exists
+    const userExist = await User.findByPk(email)
+    if(userExist){
+      res.status(422).json({message: 'Email já cadastrado selecione outro'})
+      return
+    }
+    const camposAtualizaveis = {
+      name,
+      cpf,
+      rg,
+      cnpj,
+      fone,
+      email,
+      registro,
+      diplomas,
+      certificado,
+      cartaovacina,
+      contatoemergencia,
+      contratos
+    };
+
+    const camposAtualizados = {};
+
+    for (const campo of Object.keys(camposAtualizaveis)) {
+      if (camposAtualizaveis[campo]) {
+        camposAtualizados[campo] = camposAtualizaveis[campo];
+      }
+    }
+
+    if (Object.keys(camposAtualizados).length === 0) {
+      res.status(422).json({message: 'Nem um campo preenchido'})
+      return
+    }
+    try{
+      // returns user update data
+      await User.update(camposAtualizados, {where: {id: id}})
+      res.status(200).json({message: 'Usuário atualizado com sucesso'})
+    }catch (error){
+      res.status(500).json({ message: error})
+     }
   }
 
   static async register(req, res){
@@ -135,4 +182,6 @@ module.exports = class UserController{
       res.status(500).json({message: err})
     }
   }
+
+  
 }
