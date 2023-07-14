@@ -29,7 +29,7 @@ function Profile() {
           className='user-avatar'
         />
         <h3 className='text-center'>User name</h3>
-        <p className='text-center'>Cargo</p>
+        <p className='text-center'>Função</p>
       </div>
       <div className='card-profile-2'>
         <h3 className='col-12 text-center mt-3 mb-3'>Dados do Usuário</h3>
