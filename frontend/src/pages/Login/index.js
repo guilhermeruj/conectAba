@@ -1,41 +1,48 @@
-// import React, { useState } from 'react';
 import './loginModule.css';
 import Inputs from '../../components/input';
+import { useState, useContext } from 'react';
+import { Link } from "react-router-dom";
+
+// Context
+import { Context } from '../../context/UserContext';
 
 function Login(){
-  // const [email, setEmail] = useState('');
-  // const [senha, setSenha] = useState('');
+  const [user, setUser] = useState({});
+  const { login } = useContext(Context)
 
-  function handleLogin() {
-    // Adicionar a lógica de autenticação
-    // Verifique se o CPF e a senha são válidos e autentique o usuário
-    // Por exemplo, você pode enviar uma solicitação ao backend para verificar as credenciais
+  function handleChange(e) {
+    setUser({...user, [e.target.name]: e.target.value}); 
+    
   };
+  function handleSubmit(e){
+    e.preventDefault()
+    login(user)
+  }
 
   return (
     <div className="container-login">
       <div className="card-login style-cards">
-        <form className='row'>
+        <form className='row' onSubmit={handleSubmit}>
           <h3 className='form-label'>Conect-ABA Login </h3>
           <Inputs
             label="Email:"
-            type="text"
+            type="email"
             name="email"
             placeholder="Digite aqui seu email.."
-            onChange={handleLogin}
+            handleOnChange={handleChange}
           />
           <Inputs
             label="Senha:"
             type="password"
             name='password'
             placeholder="Digite aqui sua senha.."
-            onChange={handleLogin}
+            handleOnChange={handleChange}
           />
           
           <div className='col-12'>
-              <Inputs type="submit" value="Logar" className="custom-button"/> 
+          <Inputs type="submit" value="Logar" className="custom-button"/> 
           </div>
-          
+         Esqueceu sua senha??<Link to="/search-user"> <span>recuperar senha!</span> </Link> 
         </form>
       </div>
     </div>

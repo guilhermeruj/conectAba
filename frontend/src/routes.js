@@ -1,5 +1,6 @@
-import React from 'react';
-import { BrowserRouter, Routes, Route, useLocation, Router } from 'react-router-dom';
+import React, { useEffect } from 'react';
+import { BrowserRouter, Routes, Route, useLocation, useNavigate  } from 'react-router-dom';
+
 
 /* Paginas */
 import Home from './pages/Home';
@@ -9,7 +10,6 @@ import UserPage from './pages/UsuarioEdit';
 import SearchUser from './pages/SearchPage';
 import Profile from './pages/Profile';
 
-
 /* components */
 import Header from './components/Header';
 import Footer from './components/Footer';
@@ -17,32 +17,51 @@ import Message from './components/Message';
 
 import { UserProvider } from './context/UserContext';
 
+
+
 function RoutesWithHeaderFooter() {
-  const location = useLocation(); // Obtém a localização atual da rota //Gets the current location of the route
-  const isLoginPage = location.pathname === '/login'; // Verifica se a rota atual é a tela de login //Checks if the current route is the login screen
+  const location = useLocation();
+  const isLoginPage = location.pathname === '/login';
 
   return (
     <>
-      {!isLoginPage && <Header />} {/* Renderiza o Header apenas se não estiver na tela de login */}{/* Renders the Header only if not on the login page */}
+      {!isLoginPage && <Header />}
       <Routes>
-        <Route path="/" element={<Home />} />
         <Route path="/login" element={<Login />} />
+        {/* Proteção das rotas */}
+        <Route path="/" element={<Home />} />
         <Route path="/register" element={<Register />} />
-        <Route path="/user" element={<UserPage/>}/>
+        <Route path="/user" element={<UserPage />} />
         <Route path="/search-user" element={<SearchUser />} />
-        <Route path="/profile" element={<Profile/>}/> 
+        <Route path="/profile" element={<Profile />} />
       </Routes>
-      {!isLoginPage && <Footer />} {/* Renderiza o Footer apenas se não estiver na tela de login */}{/* Renders the Footer only if not on the login page */}
+      {!isLoginPage && <Footer />}
     </>
   );
 }
 
+function CheckAuth() {
+  const isAuthenticated = localStorage.getItem('token');
+  const navigate = useNavigate();
+
+  // Verifica a autenticação do usuário
+  useEffect(() => {
+    if (!isAuthenticated) {
+      navigate('/login');
+    }
+  }, [isAuthenticated, navigate]);
+
+  return <RoutesWithHeaderFooter />;
+}
+
 function RoutesApp() {
+
+
   return (
     <BrowserRouter>
       <UserProvider>
-        <Message /> {/* Renderiza a mensagem em todas as páginas */}{/* Renders the message on all pages */}
-        <RoutesWithHeaderFooter /> {/* Renderiza as rotas com o header e o footer condicionalmente */}{/* Renders the routes with the header and footer conditionally */}
+        <Message />
+        <CheckAuth /> {/* Verifica a autenticação antes de renderizar as rotas */}
       </UserProvider>
     </BrowserRouter>
   );

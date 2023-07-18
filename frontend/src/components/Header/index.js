@@ -2,7 +2,12 @@ import { Link } from "react-router-dom";
 import './headerModules.css'
 import UserCard from "../UserCard";
 
+// Context
+import { Context } from '../../context/UserContext';
+import { useContext } from 'react';
+
 function Header() {
+  const { authenticated, logout } = useContext(Context)
   return (
     <header className="header-container">
       <h2 className="navbar-logo">Conect Aba</h2>
@@ -11,6 +16,7 @@ function Header() {
         <Link to="/login">Login</Link>
         <Link to="/register">Cadastrar</Link>
         <Link to="/search-user">Pesquisar</Link>
+        <Link onClick={logout}>Sair</Link>
       </div>
       <UserCard/>
     </header>
