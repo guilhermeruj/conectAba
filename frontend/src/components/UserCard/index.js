@@ -24,7 +24,7 @@ function UserCard() {
           </li>
           <li>
             <BsPencilSquare className="icon" />
-            <Link to="/user">Editar Perfil</Link>
+            <Link to="/edituser">Editar Perfil</Link>
           </li>
           <li>
             <BsEnvelopeFill className="icon" />

@@ -1,28 +1,63 @@
-import React, { useContext, useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Inputs from '../../components/input';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './usuarioModule.css'
+import api from '../../utils/api'
 
 import { Context } from '../../context/UserContext';
 
+import userFlashMessage from '../../hooks/useFlashMessage'
 
 function UserPage() {
-  const [user, setUser] = useState({});
-  const { updateUser } = useContext(Context);
+  const [user, setUser] = useState({})
+  const [token] = useState(localStorage.getItem('token') || '')
+  const { setFlashMessage} = userFlashMessage
+  
+  useEffect(() => {
+    api.get('users/checkuser',{
+    headers: {
+      Authorization: `Bearer ${JSON.parse(token)}`
+    }
+  })
+  .then((response) => {
+    setUser(response.data)
+  }).catch((error) => {
+    console.log(error)
+  })}, [token])
 
-  // Função para atualizar os campos do usuário
-  function handleOnChange(e) {
-    setUser({ ...user, [e.target.name]: e.target.value });
+  function onFileChange(e){
+    setUser({...user, [e.target.name]: e.target.file[0]});
   }
 
-  // Função para lidar com o envio do formulário de atualização
-  function handleSubmit(e) {
-    e.preventDefault();
-    console.log(user);
-    // Enviar os dados atualizados do usuário para o banco de dados
-    updateUser(user);
+  function handleOnChange(e){
+    setUser({...user, [e.target.name]: e.target.value});
   }
+  async function handleSubmit(e){
+    e.preventDefault()
 
+    let msgType = 'success'
+    const formData = new FormData()
+
+    await Object.keys(user).forEach((key) =>
+      formData.append(key, user[key]) 
+    )
+
+    const data = await api.patch(`users/edit/${user.id}`, formData, {
+      headers: {
+        Authorization: `Bearer ${JSON.parse(token)}`,
+        'Content-Type': 'multpart/form-data'
+      }
+    })
+    .then((response) => {
+      return response.data
+    })
+    .catch((err) => {
+      msgType = 'error'
+      return err.response.data
+    })
+
+    setFlashMessage(data.message, msgType)
+  }
   return (
     <div className='container-user'>
       <div className='card-user style-cards'>
@@ -35,6 +70,7 @@ function UserPage() {
               name="name"
               placeholder="Digite o nome completo"
               handleOnChange={handleOnChange}
+              value={user.name || ""}
             />
           </div>
           <div className='col-6'>
@@ -44,6 +80,7 @@ function UserPage() {
               name="email"
               placeholder="Digite o email"
               handleOnChange={handleOnChange}
+              value={user.email || ""}
             />
           </div>
           <div className='col-4'>
@@ -53,6 +90,7 @@ function UserPage() {
               name="cpf"
               placeholder="Digite o CPF"
               handleOnChange={handleOnChange}
+              value={user.cpf || ""}
             />
           </div>
           <div className='col-4'>
@@ -62,6 +100,7 @@ function UserPage() {
               name="rg"
               placeholder="Digite o RG"
               handleOnChange={handleOnChange}
+              value={user.rg || ""}
             />
           </div>
           <div className='col-4'>
@@ -71,6 +110,7 @@ function UserPage() {
               name="cnpj"
               placeholder="Digite o CNPJ"
               handleOnChange={handleOnChange}
+              value={user.cnpj || ""}
             />
           </div>
           <div className='col-12'><hr /></div>
@@ -81,6 +121,7 @@ function UserPage() {
               name="fone"
               placeholder="Digite o seu telefone"
               handleOnChange={handleOnChange}
+              value={user.fone || ""}
             />
           </div>
           <div className='col-6'>
@@ -90,6 +131,7 @@ function UserPage() {
               name="contatoemergencia"
               placeholder="Digite o telefone de emergência"
               handleOnChange={handleOnChange}
+              value={user.contatoemergencia || ""}
             />
           </div>
           <div className='col-12'><hr /></div>
@@ -100,6 +142,7 @@ function UserPage() {
               name="numeroRegistroProfissional"
               placeholder="Digite o número de registro profissional"
               handleOnChange={handleOnChange}
+              value={user.contrato || ""}
             />
           </div>
 
@@ -110,6 +153,7 @@ function UserPage() {
               name="numeroCarteiraVacinação"
               placeholder="Digite o número da carteira de vacinação"
               handleOnChange={handleOnChange}
+              value={user.numeroCarteiraVacinação || ""}
             />
           </div>
           <div className='col-12'><hr /></div>
@@ -121,7 +165,8 @@ function UserPage() {
                   type="file"
                   className="custom-file-input"
                   name="uploadDiplomas"
-                  onChange={handleOnChange}
+                  onChange={onFileChange}
+                  value={user.numeroCarteiraVacinação || ""}
                 />
               </div>
             </div>

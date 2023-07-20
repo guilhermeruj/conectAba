@@ -18,7 +18,6 @@ import Message from './components/Message';
 import { UserProvider } from './context/UserContext';
 
 
-
 function RoutesWithHeaderFooter() {
   const location = useLocation();
   const isLoginPage = location.pathname === '/login';
@@ -28,10 +27,10 @@ function RoutesWithHeaderFooter() {
       {!isLoginPage && <Header />}
       <Routes>
         <Route path="/login" element={<Login />} />
-        {/* Proteção das rotas */}
+        {/* Rotas que precisam ser protegiadas  */}
         <Route path="/" element={<Home />} />
         <Route path="/register" element={<Register />} />
-        <Route path="/user" element={<UserPage />} />
+        <Route path="/edituser" element={<UserPage />} />
         <Route path="/search-user" element={<SearchUser />} />
         <Route path="/profile" element={<Profile />} />
       </Routes>

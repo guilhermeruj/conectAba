@@ -1,20 +1,37 @@
 import { Link } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './profileModule.css';
+import api from '../../utils/api'
+
+import { useState, useEffect } from 'react'
 
 function Profile() {
+  const [user, setUser] = useState({})
+  const [token] = useState(localStorage.getItem('token') || '')
+  
+  useEffect(() => {
+    api.get('users/checkuser',{
+    headers: {
+      Authorization: `Bearer ${JSON.parse(token)}`
+    }
+  })
+  .then((response) => {
+    setUser(response.data)
+  }).catch((error) => {
+    console.log(error)
+  })}, [token])
   // Dados fictícios para preencher as informações do usuário
   const userData = {
-    name: 'Nome do Usuário',
-    email: 'email@example.com',
-    cpf: '123.456.789-00',
-    rg: '987654321',
-    cnpj: '12.345.678/0001-90',
-    fone: '123456789',
-    contatoemergencia: '987654321',
-    nivel: 'administrador',
-    numeroRegistroProfissional: '1234567890',
-    numeroCarteiraVacinação: 'ABCDEFGHIJ',
+    name: user.name,
+    email: user.email,
+    cpf: user.cpf,
+    rg: user.rg,
+    cnpj: user.cnpj,
+    fone: user.fone,
+    contatoemergencia: user.contatoemergencia,
+    nivel: user.nivel,
+    numeroRegistroProfissional: user.certificado,
+    numeroCarteiraVacinação: user.cartaovacina,
   };
 
   return (
