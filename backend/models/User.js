@@ -60,6 +60,10 @@ const User = db.define('User', {
   nivel:{
     type: DataTypes.STRING,
     allowNull: false
+  },
+  imageName: {
+    type: DataTypes.STRING,
+    allowNull: true,
   }
 });
 

@@ -4,6 +4,7 @@ import './profileModule.css';
 import api from '../../utils/api'
 
 import { useState, useEffect } from 'react'
+import RoundedImage from '../../components/RoundedImage';
 
 function Profile() {
   const [user, setUser] = useState({})
@@ -32,23 +33,25 @@ function Profile() {
     nivel: user.nivel,
     numeroRegistroProfissional: user.certificado,
     numeroCarteiraVacinação: user.cartaovacina,
+    imagemPerfil: user.imageName
   };
 
   return (
     <div className='container-profile'>
       <div className='card-profile-1'>
-        <img
-          src='https://static.vecteezy.com/ti/vetor-gratis/p1/9734564-default-avatar-profile-icon-of-social-media-user-vetor.jpg'
-          alt='Foto do usuário'
-          className='user-avatar'
-        />
+            <RoundedImage
+                src={
+                 `${process.env.REACT_APP_API}/images/users/${userData.imagemPerfil}`
+              }
+              alt={user.imageName}
+            />
         <h5 className='text-center'>{userData.name}</h5>
-        <p className='text-center'>Função</p>
-        <p className='text-center'><strong>Email:</strong> {userData.email}</p>
-        <p className='text-center'><strong>Telefone Pessoal:</strong> {userData.fone}</p>
+        <strong className='LabelNivel'>{userData.nivel}</strong><br></br>
+        {/* <p className='text-center'><strong>Email:</strong> {userData.email}</p>
+        <p className='text-center'><strong>Telefone Pessoal:</strong> {userData.fone}</p> */}
         
         <Link to="/user">
-          <button className="custom-button">Editar</button>
+          <button className="custom-button">Editar Perfil</button>
         </Link>
         
       </div>
@@ -56,46 +59,37 @@ function Profile() {
         <h3 className='col-12 text-center profile-title'>Dados do Usuário</h3>
         <div className='profile-form-container'>
           <div className='row'>
-            <div className='col-6'>
-              <p><strong>Nome Completo:</strong> {userData.name}</p>
-            </div>
-            <div className='col-6'>
-              <p><strong>Email:</strong> {userData.email}</p>
-            </div>
-            <div className='col-4'>
-              <p><strong>CPF:</strong> {userData.cpf}</p>
-            </div>
-            <div className='col-4'>
-              <p><strong>RG:</strong> {userData.rg}</p>
-            </div>
-            <div className='col-4'>
-              <p><strong>CNPJ:</strong> {userData.cnpj}</p>
-            </div>
-            <div className='col-12'><hr /></div>
-            <div className='col-6'>
-              <p><strong>Telefone Pessoal:</strong> {userData.fone}</p>
-            </div>
-            <div className='col-6'>
-              <p><strong>Telefone Emergência:</strong> {userData.contatoemergencia}</p>
-            </div>
-            <div className='col-12'><hr /></div>
             <div className='col-12'>
-              <p><strong>Nível de acesso:</strong> {userData.nivel}</p>
+              <p><strong className='LabelName'>{userData.name}</strong><br></br><strong className='LabelNivel'>{userData.nivel}</strong></p>
+              <hr />
             </div>
-            <div className='col-12'><hr /></div>
-            <div className='col-6'>
-              <p><strong>Número Registro Profissional:</strong> {userData.numeroRegistroProfissional}</p>
-            </div>
-            <div className='col-6'>
-              <p><strong>Número da Carteira de Vacinação:</strong> {userData.numeroCarteiraVacinação}</p>
-            </div>
-            <div className='col-12'><hr /></div>
             <div className='col-12'>
-              <label>Diplomas:</label>
-              <div className=''>
-                <p>Upload de diplomas</p>
-              </div>
+              <p><strong className='colorLabel'>Email:</strong> {userData.email}</p>
             </div>
+            <div className='col-4'>
+              <p><strong className='colorLabel'>CPF:</strong> {userData.cpf}</p>
+            </div>
+            <div className='col-4'>
+              <p><strong className='colorLabel'>RG:</strong> {userData.rg}</p>
+            </div>
+            <div className='col-4'>
+              <p><strong className='colorLabel'>CNPJ:</strong> {userData.cnpj}</p>
+            </div>
+            <div className='col-12'><hr /></div>
+            <div className='col-6'>
+              <p><strong className='colorLabel'>Telefone Pessoal:</strong> {userData.fone}</p>
+            </div>
+            <div className='col-6'>
+              <p><strong className='colorLabel'>Telefone Emergência:</strong> {userData.contatoemergencia}</p>
+            </div>
+            <div className='col-12'><hr /></div>
+            <div className='col-6'>
+              <p><strong className='colorLabel'>Número Registro Profissional:</strong> {userData.numeroRegistroProfissional}</p>
+            </div>
+            <div className='col-6'>
+              <p><strong className='colorLabel'>Número da Carteira de Vacinação:</strong> {userData.numeroCarteiraVacinação}</p>
+            </div>
+            <div className='col-12'><hr /></div>
           </div>
         </div>
       </div>

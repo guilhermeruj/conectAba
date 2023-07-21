@@ -68,15 +68,19 @@ module.exports = class UserController{
   static async editUser(req, res){
     const id = req.params.id 
      
-    //check if user exists 
-    // const token = getToken(req)
-    // const user = await getUserByToken(token)
-    // if(!user){
-    //   res.status(422).json({message: 'Usuário não encontrato'})
-    //   return
-    // }
-    const {name, cpf, rg, cnpj, fone, email, registro, diplomas, certificado, cartaovacina, contatoemergencia, contratos, } = req.body
-    let image = ''
+    // check if user exists 
+    const token = getToken(req)
+    const user = await getUserByToken(token)
+    if(!user){
+      res.status(422).json({message: 'Usuário não encontrato'})
+      return
+    }
+    const {name, cpf, rg, cnpj, fone, email, registro, diplomas, certificado, cartaovacina, contatoemergencia, contratos} = req.body
+
+    let imageName = ''
+    if(req.file){
+      imageName = req.file.filename
+    }
       // check id email has already exists
     const userExist = await User.findByPk(email)
     if(userExist){
@@ -95,7 +99,8 @@ module.exports = class UserController{
       certificado,
       cartaovacina,
       contatoemergencia,
-      contratos
+      contratos,
+      imageName
     };
 
     const camposAtualizados = {};

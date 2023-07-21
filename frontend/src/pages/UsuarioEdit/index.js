@@ -4,14 +4,17 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import './usuarioModule.css'
 import api from '../../utils/api'
 
-import { Context } from '../../context/UserContext';
+// import { Context } from '../../context/UserContext';
 
-import userFlashMessage from '../../hooks/useFlashMessage'
+import useFlashMessage from '../../hooks/useFlashMessage';
+import RoundedImage from '../../components/RoundedImage';
+
 
 function UserPage() {
   const [user, setUser] = useState({})
+  const [preview, setPreview] = useState()
   const [token] = useState(localStorage.getItem('token') || '')
-  const { setFlashMessage} = userFlashMessage
+  const { setFlashMessage } = useFlashMessage()
   
   useEffect(() => {
     api.get('users/checkuser',{
@@ -26,7 +29,8 @@ function UserPage() {
   })}, [token])
 
   function onFileChange(e){
-    setUser({...user, [e.target.name]: e.target.file[0]});
+    setPreview(e.target.files[0])
+    setUser({...user, [e.target.name]: e.target.files[0]});
   }
 
   function handleOnChange(e){
@@ -63,6 +67,7 @@ function UserPage() {
       <div className='card-user style-cards'>
         <form className='row' onSubmit={handleSubmit}>
           <h5 className='col-12 text-center form-label'>Atualizar Informações</h5>
+          
           <div className='col-6'>
             <Inputs
               label="Nome Completo:"
@@ -158,17 +163,30 @@ function UserPage() {
           </div>
           <div className='col-12'><hr /></div>
           <div className='col-12'>
-            <label>Diplomas:</label>
+            <label>Imagem:</label>
             <div className="">
               <div className="custom-file">
                 <input
                   type="file"
                   className="custom-file-input"
-                  name="uploadDiplomas"
+                  name="image"
                   onChange={onFileChange}
-                  value={user.numeroCarteiraVacinação || ""}
+                  value={user.imageImagem || ""}
                 />
               </div>
+              <div><br></br>
+          
+          {(user.imageName || preview) && (
+            <RoundedImage
+                src={
+                  preview
+                  ? URL.createObjectURL(preview)
+                  : `${process.env.REACT_APP_API}/images/users/${user.imageName}`
+              }
+              alt={user.imageName}
+            />
+          )}
+        </div>
             </div>
          </div>
          <div className='col-12'><hr /></div>

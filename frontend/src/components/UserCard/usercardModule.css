@@ -7,12 +7,19 @@
 
 .action .profile {
     position: relative;
-    width: 60px;
-    height: 60px;
-    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    border-radius: 100%;
+    border: solid 0.1em #F1FCFC;
     overflow: hidden;
     cursor: pointer;
     color: #fff;
+    margin: 0.4em;
+}
+.action .profile:hover{
+    width: 53px;
+    height: 53px;
+    margin: 0.3em;
 }
 
 .action .profile .icon {
@@ -104,7 +111,7 @@
 }
 
 .action .menu ul li:hover a {
-    color: rgb(52, 52, 164);
+    color: #9bacad;
 }
 
 

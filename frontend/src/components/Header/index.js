@@ -13,10 +13,7 @@ function Header() {
       <h2 className="navbar-logo">Conect Aba</h2>
       <div className="nav-bar">
         <Link to="/">Home</Link>
-        <Link to="/login">Login</Link>
         <Link to="/register">Cadastrar</Link>
-        <Link to="/search-user">Pesquisar</Link>
-        <Link onClick={logout}>Sair</Link>
       </div>
       <UserCard/>
     </header>
