@@ -3,13 +3,16 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import './profileModule.css';
 import api from '../../utils/api'
 
+import AbaDadosAdicionais from '../../components/AbaDadosAdicionais';
+
 import { useState, useEffect } from 'react'
 import RoundedImage from '../../components/RoundedImage';
 
 function Profile() {
   const [user, setUser] = useState({})
   const [token] = useState(localStorage.getItem('token') || '')
-  
+  const [mostrarAbaUsuario, setMostrarAbaUsuario] = useState(true)
+
   useEffect(() => {
     api.get('users/checkuser',{
     headers: {
@@ -56,42 +59,64 @@ function Profile() {
         
       </div>
       <div className='card-profile-2'>
-        <h3 className='col-12 text-center profile-title'>Dados do Usuário</h3>
-        <div className='profile-form-container'>
-          <div className='row'>
-            <div className='col-12'>
-              <p><strong className='LabelName'>{userData.name}</strong><br></br><strong className='LabelNivel'>{userData.nivel}</strong></p>
-              <hr />
-            </div>
-            <div className='col-12'>
-              <p><strong className='colorLabel'>Email:</strong> {userData.email}</p>
-            </div>
-            <div className='col-4'>
-              <p><strong className='colorLabel'>CPF:</strong> {userData.cpf}</p>
-            </div>
-            <div className='col-4'>
-              <p><strong className='colorLabel'>RG:</strong> {userData.rg}</p>
-            </div>
-            <div className='col-4'>
-              <p><strong className='colorLabel'>CNPJ:</strong> {userData.cnpj}</p>
-            </div>
-            <div className='col-12'><hr /></div>
-            <div className='col-6'>
-              <p><strong className='colorLabel'>Telefone Pessoal:</strong> {userData.fone}</p>
-            </div>
-            <div className='col-6'>
-              <p><strong className='colorLabel'>Telefone Emergência:</strong> {userData.contatoemergencia}</p>
-            </div>
-            <div className='col-12'><hr /></div>
-            <div className='col-6'>
-              <p><strong className='colorLabel'>Número Registro Profissional:</strong> {userData.numeroRegistroProfissional}</p>
-            </div>
-            <div className='col-6'>
-              <p><strong className='colorLabel'>Número da Carteira de Vacinação:</strong> {userData.numeroCarteiraVacinação}</p>
-            </div>
-            <div className='col-12'><hr /></div>
-          </div>
+        <div className="row abas">
+          <button className={`col-4 text-center custom-button ${mostrarAbaUsuario ? 'active' : ''}`} onClick={() => setMostrarAbaUsuario(true)}>
+            Dados do Usuário
+          </button>
+
+          <button className={`col-4 text-center custom-button ${!mostrarAbaUsuario ? 'active' : ''}`} onClick={() => setMostrarAbaUsuario(false)}>
+            Dados Adicionais
+          </button>
         </div>
+        <div className='profile-form-container'>
+          {/* Renderizar a aba "Dados do Usuário" se mostrarAbaUsuario for true */}
+          {mostrarAbaUsuario && (
+            <div className="aba-1">
+              <div className='row'>
+                <div className='col-12'>
+                  <p><strong className='LabelName'>{userData.name}</strong><br></br><strong className='LabelNivel'>{userData.nivel}</strong></p>
+                  <hr />
+                </div>
+                <div className='col-12'>
+                  <p><strong className='colorLabel'>Email:</strong> {userData.email}</p>
+                </div>
+                <div className='col-4'>
+                  <p><strong className='colorLabel'>CPF:</strong> {userData.cpf}</p>
+                </div>
+                <div className='col-4'>
+                  <p><strong className='colorLabel'>RG:</strong> {userData.rg}</p>
+                </div>
+                <div className='col-4'>
+                  <p><strong className='colorLabel'>CNPJ:</strong> {userData.cnpj}</p>
+                </div>
+                <div className='col-12'><hr /></div>
+                <div className='col-6'>
+                  <p><strong className='colorLabel'>Telefone Pessoal:</strong> {userData.fone}</p>
+                </div>
+                <div className='col-6'>
+                  <p><strong className='colorLabel'>Telefone Emergência:</strong> {userData.contatoemergencia}</p>
+                </div>
+                <div className='col-12'><hr /></div>
+                <div className='col-6'>
+                  <p><strong className='colorLabel'>Número Registro Profissional:</strong> {userData.numeroRegistroProfissional}</p>
+                </div>
+                <div className='col-6'>
+                  <p><strong className='colorLabel'>Número da Carteira de Vacinação:</strong> {userData.numeroCarteiraVacinação}</p>
+                </div>
+                <div className='col-12'></div>
+              </div>
+            </div>
+          )}
+
+          {/* Renderizar a aba "Dados Adicionais" se mostrarAbaUsuario for false */}
+          {!mostrarAbaUsuario && (
+            <div className="row aba-2">
+              <hr />
+              <AbaDadosAdicionais />
+            </div>
+          )}
+        </div>
+        
       </div>
     </div>
   );

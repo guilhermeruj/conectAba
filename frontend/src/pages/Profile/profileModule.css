@@ -1,3 +1,6 @@
+.abas{
+  justify-content: space-around;
+}
 .container-profile {
     display: flex;
     justify-content: center;

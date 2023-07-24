@@ -6,7 +6,7 @@ const UserController = require('../controllers/UserController')
 const verifytoken = require('../helpers/verify-token')
 const { imageUpload } = require('../helpers/image-upload') ;
 
-router.post('/register', verifytoken, UserController.register)
+router.post('/register', UserController.register)
 router.post('/login', UserController.login)
 router.get('/checkuser', verifytoken, UserController.checkUser)
 router.get('/profile/:id', verifytoken, UserController.listProfile)
