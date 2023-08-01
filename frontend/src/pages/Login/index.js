@@ -2,6 +2,7 @@ import './loginModule.css';
 import Inputs from '../../components/input';
 import { useState, useContext } from 'react';
 import { Link } from "react-router-dom";
+import LogoConnect from './Logo_Connect_ABA.png';
 
 // Context
 import { Context } from '../../context/UserContext';
@@ -22,8 +23,16 @@ function Login(){
   return (
     <div className="container-login">
       <div className="card-login style-cards">
-        <form className='row' onSubmit={handleSubmit}>
-          <h3 className='form-label'>Conect-ABA Login </h3>
+        <form className='row form-login' onSubmit={handleSubmit}>
+          <div className="logo-container">
+            <img
+            className="logo-img"
+            src={LogoConnect}
+            alt="Logo"
+            />
+          </div>
+          
+          <h5 className='form-label'>Acessar </h5>
           <Inputs
             label="Email:"
             type="email"
@@ -39,10 +48,13 @@ function Login(){
             handleOnChange={handleChange}
           />
           
-          <div className='col-12'>
+          <div className='col-12 mt-3 mb-3'>
           <Inputs type="submit" value="Logar" className="custom-button"/> 
           </div>
-         Esqueceu sua senha??<Link to="/search-user"> <span>recuperar senha!</span> </Link> 
+          <div>
+            Esqueceu sua senha??<Link to="/search-user"> <span>recuperar senha!</span> </Link> 
+          </div>
+         
         </form>
       </div>
     </div>
