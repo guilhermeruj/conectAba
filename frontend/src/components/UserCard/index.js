@@ -75,7 +75,7 @@ function UserCard() {
         <ul>
           <li>
             <BsFillPersonFill className="icon" />
-            <Link to="/profile" onClick={handleLinkClick}>Meu Perfil</Link>
+            <Link to="/user-profile" onClick={handleLinkClick}>Meu Perfil</Link>
           </li>
           <li>
             <BsPencilSquare className="icon" />

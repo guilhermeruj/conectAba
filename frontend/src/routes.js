@@ -1,43 +1,17 @@
 import React, { useEffect } from 'react';
-import { BrowserRouter, Routes, Route, useLocation, useNavigate  } from 'react-router-dom';
-
+import { BrowserRouter, Routes, Route, useNavigate } from 'react-router-dom';
 
 /* Paginas */
-import Home from './pages/Home';
 import Login from './pages/Login';
 import Register from './pages/Register';
 import UserPage from './pages/UsuarioEdit';
 import SearchUser from './pages/SearchPage';
-import Profile from './pages/Profile';
-
+import HomePage from './pages/Home';
 /* components */
-import Header from './components/Header';
-import Footer from './components/Footer';
 import Message from './components/Message';
 
 import { UserProvider } from './context/UserContext';
-
-
-function RoutesWithHeaderFooter() {
-  const location = useLocation();
-  const isLoginPage = location.pathname === '/login';
-
-  return (
-    <>
-      {!isLoginPage && <Header />}
-      <Routes>
-        <Route path="/login" element={<Login />} />
-        {/* Rotas que precisam ser protegiadas  */}
-        <Route path="/" element={<Home />} />
-        <Route path="/register" element={<Register />} />
-        <Route path="/edituser" element={<UserPage />} />
-        <Route path="/search-user" element={<SearchUser />} />
-        <Route path="/profile" element={<Profile />} />
-      </Routes>
-      {!isLoginPage && <Footer />}
-    </>
-  );
-}
+import UserProfile from './pages/PaginaPerfil';
 
 function CheckAuth() {
   const isAuthenticated = localStorage.getItem('token');
@@ -49,18 +23,26 @@ function CheckAuth() {
       navigate('/login');
     }
   }, [isAuthenticated, navigate]);
-
-  return <RoutesWithHeaderFooter />;
 }
 
 function RoutesApp() {
-
+  const routes = (
+    <Routes>
+      <Route path="/login" element={<Login />} />
+      <Route path="/" element={<HomePage />} />
+      <Route path="/register" element={<Register />} />
+      <Route path="/edituser" element={<UserPage />} />
+      <Route path="/search-user" element={<SearchUser />} />
+      <Route path="/user-profile" element={<UserProfile/>} />
+    </Routes>
+  );
 
   return (
     <BrowserRouter>
       <UserProvider>
         <Message />
         <CheckAuth /> {/* Verifica a autenticação antes de renderizar as rotas */}
+        {routes}
       </UserProvider>
     </BrowserRouter>
   );

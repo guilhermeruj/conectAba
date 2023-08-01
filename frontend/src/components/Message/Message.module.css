@@ -1,5 +1,6 @@
 .message-container {
   position: relative;
+  z-index: 9999;
 }
 
 .message {
@@ -10,7 +11,7 @@
   text-align: center;
   border-radius: 5px;
   position: fixed;
-  top: 5em;
+  top: 15em;
   right: 0;
   opacity: 0;
   transform: translateX(100%);

@@ -26,13 +26,13 @@ const dadosDoBancoDeDados = [
 
 function AbaDadosAdicionais() {
   return (
-    <div className="profile-adicional-container">
+    <div className="row  profile-adicional-container">
       {dadosDoBancoDeDados.map((dado, index) => (
-        <div key={index} className="dados-adicionais-container">
+        <div key={index} className="col-md-12 dados-adicionais-container">
           <div className="categoria-title">{dado.categoria} - {dado.nomeDado}</div>
 
           {/* Utilizamos o textarea para a descrição do dado */}
-          <div className="descricao-dado">
+          <div className="col-md-12 descricao-dado">
             <label htmlFor={`descricao-dado-${index}`}>Descrição:</label>
             <textarea
               id={`descricao-dado-${index}`}
@@ -43,7 +43,7 @@ function AbaDadosAdicionais() {
             />
           </div>
           <br />
-          <div className="arquivo-upado">Mostrar o arquivo: {dado.arquivoUpado}</div>
+          <div className="col-md-12 arquivo-upado">Mostrar o arquivo: {dado.arquivoUpado}</div>
           <hr />
         </div>
       ))}

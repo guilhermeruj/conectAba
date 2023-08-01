@@ -1,28 +1,11 @@
-.header-container{
-  width: 100vw;
-  height: auto;
-  background-image: linear-gradient(120deg, #165059, #157F8C);
+.header{
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  padding: 0 24px;
-}
-.navbar-logo{
-  text-decoration: none;
-  color: #fff;
+  justify-content: flex-end;
+  width: auto;
+  height: auto;
 }
 
-.nav-bar a {
-  color: #fff;
-  font-size: 20px;
-  font-style: none;
-  text-decoration: none;
+.user-profile{
+  position: relative;
 }
-.nav-bar a:hover{
-  color: #9bacad;
-}
-
-.nav-bar a + a {
-  margin-left: .7em;
-}
-
