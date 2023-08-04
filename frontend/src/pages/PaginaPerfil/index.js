@@ -2,7 +2,7 @@ import React from 'react'
 import './userProfile.css';
 import Perfil from '../../components/Perfil';
 import SidebarMenu from '../../components/NovoSideBar';
-import Header from '../../components/Header';
+import UserCard from '../../components/UserCard';
 
 function UserProfile() {
   return (
@@ -13,8 +13,8 @@ function UserProfile() {
       </div>
       
       <div className="container-right">
-        <div className="container-header">
-          <Header/>
+        <div className="header">
+          <UserCard/>
         </div>
    
         <div className="container-perfil">
@@ -22,6 +22,9 @@ function UserProfile() {
         </div>
         
         
+      </div>
+      <div className="footer">
+
       </div>
     </div>
   )

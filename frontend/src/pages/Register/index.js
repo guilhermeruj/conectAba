@@ -3,10 +3,10 @@ import './registerModule.css';
 import Inputs from '../../components/input';
 import Select from '../../components/select';
 import SidebarMenu from '../../components/NovoSideBar';
-import Header from '../../components/Header';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 import { Context } from '../../context/UserContext';
+import UserCard from '../../components/UserCard';
 
 
 function Register(){
@@ -32,8 +32,8 @@ function Register(){
       </div>
       
       <div className="container-right">
-        <div className="container-header">
-          <Header/>
+        <div className="header">
+          <UserCard/>
         </div>
         <div className='container-register '> 
             <div className='card-register style-cards'>
@@ -148,6 +148,10 @@ function Register(){
                 </form> 
             </div>
         </div>
+      </div>
+
+      <div className="footer">
+
       </div>
     </div>
   );

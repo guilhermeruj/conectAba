@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import Inputs from '../../components/input';
 import SidebarMenu from '../../components/NovoSideBar';
-import Header from '../../components/Header';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './usuarioModule.css'
 import api from '../../utils/api'
@@ -10,6 +9,7 @@ import api from '../../utils/api'
 
 import useFlashMessage from '../../hooks/useFlashMessage';
 import RoundedImage from '../../components/RoundedImage';
+import UserCard from '../../components/UserCard';
 
 
 function UserPage() {
@@ -74,8 +74,8 @@ function UserPage() {
       </div>
       
       <div className="container-right">
-        <div className="container-header">
-          <Header/>
+        <div className="header">
+          <UserCard/>
         </div>
    
 
@@ -214,6 +214,10 @@ function UserPage() {
               </div>
             </form>
           </div>
+        </div>
+
+        <div className="footer">
+
         </div>
       </div>
 

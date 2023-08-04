@@ -26,18 +26,20 @@ ul{
 } 
 
 .layout-page {
+  width: 100%;
   display: grid;
-  grid-template-columns: auto 1fr; 
-  gap: 2em;
-  height: auto;
+  grid-template-columns: auto 1fr; /* Duas colunas com largura igual */
+  grid-template-rows: 1fr auto; /* Duas linhas, a segunda com altura automática para o footer */
+  min-height: 100vh; /* Garante que o conteúdo ocupe pelo menos toda a altura da janela */
 }
 
 .container-left {
-  grid-area: 1 / 1 / 2 / 2; 
+  height: 100% !important;
+  display: flex;
 }
 
 .container-right {
-  grid-area: 1 / 2 / 2 / 3; 
+  padding: 1em;
 }
 
 /* Estilos adicionais para garantir que o conteúdo acompanhe a altura da coluna direita */
@@ -48,12 +50,19 @@ ul{
   margin-bottom: 1.2em;
   margin-right: 1.2em; 
 }
-.container-left{
-  height: 100vh;
+
+.footer {
+  grid-column: 1 / span 2; /* Ocupa as duas colunas */
+  text-align: center;
 }
 
-.container-header{
-  margin: 1.3em 1em;
+.header{
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+.user-profile{
+  position: relative;
 }
 /* Define o padrao dos cards */
 /* Sets the default for cards */

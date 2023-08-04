@@ -1,5 +1,5 @@
 import SidebarMenu from '../../components/NovoSideBar';
-import Header from '../../components/Header';
+import UserCard from '../../components/UserCard';
 
 function HomePage() {
   return (
@@ -8,12 +8,15 @@ function HomePage() {
         <SidebarMenu/>
       </div>
       <div className="container-right">
-        <div className="container-header">
-          <Header/>
+        <div className="header">
+          <UserCard/>
         </div>
 
         
         
+      </div>
+      <div className="footer">
+
       </div>
     </div>
   )
