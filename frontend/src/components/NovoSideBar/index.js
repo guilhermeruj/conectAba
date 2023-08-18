@@ -1,6 +1,6 @@
 import React, { useEffect, useState, useRef } from "react";
 import { Link } from "react-router-dom";
-import { IoIosArrowBack, IoIosPerson,IoIosSearch, IoIosArrowDown,IoIosNotifications,  IoIosDocument, IoIosCalendar, IoMdStats, IoIosSettings, IoIosInformationCircle, IoIosLogOut, IoIosHome, IoIosPersonAdd } from 'react-icons/io';
+import { IoIosArrowBack, IoIosPerson,IoIosSearch, IoMdClipboard, IoIosArrowDown,IoIosNotifications,  IoIosDocument, IoIosCalendar, IoMdStats, IoIosSettings, IoIosInformationCircle, IoIosLogOut, IoIosHome, IoIosPersonAdd } from 'react-icons/io';
 import { IconContext } from "react-icons";
 import "./menuSidebarModules.css";
 import LogoConnect from './Logo_Connect_ABA.png';
@@ -118,12 +118,12 @@ const SidebarMenu = () => {
             <div className="menu">
               <span className="menu-title">Menu</span>
               <ul>
-                <li>
+                {/* <li>
                   <div class="search-container">
                     <IoIosSearch className="search-icon" />
                     <input type="text" placeholder="Buscar.." className="search-input" />
                   </div>
-                </li>
+                </li> */}
                 <li>
                   <Link to="/"> 
                     <IoIosHome />
@@ -219,6 +219,12 @@ const SidebarMenu = () => {
                   <Link to="/user-profile">
                     <IoIosPerson />
                     <span className="text">Meu perfil</span>
+                  </Link>
+                </li>
+                <li>
+                  <Link to="/paciente-profile">
+                    <IoMdClipboard />
+                    <span className="text">Perfil Paciente</span>
                   </Link>
                 </li>
                 <li>

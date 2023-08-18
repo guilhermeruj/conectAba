@@ -1,6 +1,6 @@
 import React, { useContext, useState } from 'react';
 import './searchModules.css';
-import Inputs from '../../components/input';
+import Inputs from '../../components/Inputs';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 import { Context } from '../../context/UserContext';
@@ -35,7 +35,7 @@ function SearchUser() {
   }
 
   return (
-    <div className="">
+    <div className="container-layout">
       <div className="container-search">
         <div className="card-search style-cards">
           <form className="row" onSubmit={handleSearchSubmit}>

@@ -12,6 +12,7 @@ import Message from './components/Message';
 
 import { UserProvider } from './context/UserContext';
 import UserProfile from './pages/PaginaPerfil';
+import FichaPaciente from './pages/FichaPaciente';
 
 function CheckAuth() {
   const isAuthenticated = localStorage.getItem('token');
@@ -34,6 +35,7 @@ function RoutesApp() {
       <Route path="/edituser" element={<UserPage />} />
       <Route path="/search-user" element={<SearchUser />} />
       <Route path="/user-profile" element={<UserProfile/>} />
+      <Route path="/paciente-profile" element={<FichaPaciente/>} />
     </Routes>
   );
 

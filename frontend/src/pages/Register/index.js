@@ -1,7 +1,7 @@
 import React, { useContext, useState } from 'react';
 import './registerModule.css';
-import Inputs from '../../components/input';
-import Select from '../../components/select';
+import Inputs from '../../components/Inputs';
+import Select from '../../components/Select';
 import SidebarMenu from '../../components/NovoSideBar';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
@@ -25,7 +25,7 @@ function Register(){
     }
 
   return (
-    <div className="layout-page">
+    <div className="container-layout">
 
       <div className="container-left">
         <SidebarMenu/>
@@ -64,6 +64,7 @@ function Register(){
                         name="cpf"
                         placeholder="Digite o CPF"
                         handleOnChange={handleOnChange}
+                        mask="999.999.999-99"
                     />
                     </div>
                     <div className='col-4'>
@@ -73,6 +74,7 @@ function Register(){
                         name="rg"
                         placeholder="Digite o RG"
                         handleOnChange={handleOnChange}
+                        mask="99.999.999-9"
                     />
                     </div>
                     
@@ -83,6 +85,7 @@ function Register(){
                         name="cnpj"
                         placeholder="Digite o CNPJ"
                         handleOnChange={handleOnChange}
+                        mask="99.999.999/9999-99"
                     />
                     </div>
                     <div className='col-12'><hr/></div>
@@ -140,7 +143,7 @@ function Register(){
                     </div>
                     <div className="col-12 mt-4">
                         <div className="d-flex justify-content-center">
-                            <div className="col-6">
+                            <div className="col-md-12">
                                 <Inputs type="submit" value="Cadastrar" className="botao-btn"/> 
                             </div>
                         </div>

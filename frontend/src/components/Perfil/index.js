@@ -69,8 +69,8 @@ function Perfil() {
       <div className="main-bd">
         <div className="left-side">
           <div className="profile-side">
-            <div className="conteudo-side">
-              <p className="mobile-no">
+            <div className="conteudo-side mt-5">
+              <p className="">
                 <IoIosPhonePortrait className=""/> {userData.fone}
               </p>
 
@@ -104,7 +104,7 @@ function Perfil() {
                 onClick={() => handleTabPageChange(0)}
                 className={`user-dados ${activeTabPage === 0 ? 'active' : ''}`}
               >
-                Dados Usuario
+                Dados
               </li>
               <li
                 onClick={() => handleTabPageChange(1)}
@@ -136,50 +136,50 @@ function Perfil() {
                   </p>
                   <hr />
                 </div>
-                <div className='col-12'>
+                <div className='col-md-12'>
                   <p>
                     <strong className='colorLabel'>Email:</strong> {userData.email}
                   </p>
                 </div>
-                <div className='col-4'>
+                <div className='col-md-4'>
                   <p>
                     <strong className='colorLabel'>CPF:</strong> {userData.cpf}
                   </p>
                 </div>
-                <div className='col-4'>
+                <div className='col-md-4'>
                   <p>
                     <strong className='colorLabel'>RG:</strong> {userData.rg}
                   </p>
                 </div>
-                <div className='col-4'>
+                <div className='col-md-4'>
                   <p>
                     <strong className='colorLabel'>CNPJ:</strong> {userData.cnpj}
                   </p>
                 </div>
-                <div className='col-12'>
+                <div className='col-md-12'>
                   <hr />
                 </div>
-                <div className='col-6'>
+                <div className='col-md-6'>
                   <p>
                     <strong className='colorLabel'>Telefone Pessoal:</strong> {userData.fone}
                   </p>
                 </div>
-                <div className='col-6'>
+                <div className='col-md-6'>
                   <p>
                     <strong className='colorLabel'>Telefone Emergência:</strong>{' '}
                     {userData.contatoemergencia}
                   </p>
                 </div>
-                <div className='col-12'>
+                <div className='col-md-12'>
                   <hr />
                 </div>
-                <div className='col-6'>
+                <div className='col-md-6'>
                   <p>
                     <strong className='colorLabel'>Número Registro Profissional:</strong>{' '}
                     {userData.numeroRegistroProfissional}
                   </p>
                 </div>
-                <div className='col-6'>
+                <div className='col-md-6'>
                   <p>
                     <strong className='colorLabel'>Número da Carteira de Vacinação:</strong>{' '}
                     {userData.numeroCarteiraVacinação}

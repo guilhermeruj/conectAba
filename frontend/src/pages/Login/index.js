@@ -1,5 +1,5 @@
 import './loginModule.css';
-import Inputs from '../../components/input';
+import Inputs from '../../components/Inputs';
 import { useState, useContext } from 'react';
 import { Link } from "react-router-dom";
 import LogoConnect from './Logo_Connect_ABA.png';

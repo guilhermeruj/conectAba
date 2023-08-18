@@ -1,17 +1,30 @@
-import React from 'react';
-import './selectModule.css';
+// Select.js
 
-const Select = ({ label, options, onChange, name, value }) => {
+import React from 'react';
+import './selectModules.css';
+
+const Select = ({ label, name, value, options, onChange, required }) => {
   return (
-    <div className="select-container">
-      <label>{label}:</label>
-      <select className="select-input" name={name} onChange={onChange} value={value}>
-        {options.map((option, index) => (
-          <option key={index} value={option.value}>
-            {option.label}
-          </option>
-        ))}
-      </select>
+    <div className="select-sections">
+      <label className="titulo-label" htmlFor={name}>
+        {label}
+      </label>
+      <div className="selects-styles">
+        <select
+          id={name}
+          name={name}
+          value={value}
+          onChange={onChange}
+          className="select-style"
+        >
+          <option value="">Selecionar</option>
+          {options.map((option) => (
+            <option key={option.value} value={option.value}>
+              {option.label}
+            </option>
+          ))}
+        </select>
+      </div>
     </div>
   );
 };

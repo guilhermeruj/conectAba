@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import Inputs from '../../components/input';
+import Inputs from '../../components/Inputs';
 import SidebarMenu from '../../components/NovoSideBar';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './usuarioModule.css'
@@ -67,7 +67,7 @@ function UserPage() {
   return (
 
 
-    <div className="layout-page">
+    <div className="container-layout">
 
       <div className="container-left">
         <SidebarMenu/>

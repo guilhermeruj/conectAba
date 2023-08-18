@@ -1,0 +1,236 @@
+  .container-paciente-profile {
+    box-shadow: 0 0 5px rgba(0,0,0,.2);
+    background-color: #D9AFD9;
+    background-image: linear-gradient(0deg, #D9AFD9 0%, #97D9E1 100%);
+    border-radius: .5em;
+    height: auto;
+    width: fit-content;    
+}
+  
+  .header-container {
+    display: flex;
+    padding: 2em ;
+    margin-bottom: -1em;
+    margin-left:7em ;
+    gap: .5em;
+  }
+  
+  .main-heading h1{
+    font-weight: bold;
+    font-size: 26px;
+    color: #fff;
+  }
+  .main-heading span{
+    font-weight: 500;
+    color: #fff;
+  }
+  
+  .tag {
+    display: flex;
+    justify-content: center;
+    background-color: rgba(255, 255, 255, .35);
+    border-radius: 20px;
+    font-size: 11px;
+    padding: 1em 2em;
+    text-transform: uppercase;
+    width: auto;
+  }  
+  
+  .body-content {
+    background-color: #fff;
+    color: #555;
+    padding: 1em;
+    position: relative;
+    height: 100%;
+    width: auto;
+  }
+  
+  .body-image {
+    border-radius: 100%;
+    box-shadow: 5px 10px 75px rgba(0, 0, 0, .4);
+    float: left;
+    margin: -90px 0 20px;
+    position: relative;
+    z-index: 2;
+  }
+  
+  .body-stats {
+    display: inline-block;
+    font-size: 12px;
+    font-weight: 700;
+    float: left;
+    margin: -14px 0  0 30px;
+    position: relative;
+    text-transform: uppercase;
+    width: 20%;
+  }
+  
+  .body-stats > span {
+    display: inline-block;
+    font-weight: 900;
+    margin-top: 8px;
+  }
+  /* style tabs */
+  .nav-tabs {
+    margin-top: 1em;
+    margin-bottom: 1.5em;
+    border: none;
+    gap: 1em;
+  }
+  .nav-tabs a.active{
+    background-color: aqua;
+  }
+
+  .custom-tab-btn {
+    font-size: 17px;
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: .8em 2em;
+    display: inline-block;
+    border-radius: 6em;
+    transition: all .2s;
+    border: none;
+    font-family: inherit;
+    font-weight: 500;
+    border: 1px solid #ccc;
+    color: black;
+    background-color: #fff;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+
+  }
+  
+  .custom-tab-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+  }
+  
+  .custom-tab-btn:active {
+    transform: translateY(-1px);
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+  }
+  .custom-tab-btn::after {
+    content:"";
+    display: inline-block;
+    height: 100%;
+    width: 100%;
+    border-radius: 100px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    transition: all .4s;
+  }
+  
+  .custom-tab-btn::after {
+    background-color: #fff;
+  }
+  .custom-tab-btn:hover::after {
+    transform: scaleX(1.4) scaleY(1.6);
+    opacity: 0;
+  }
+
+  
+  .tab-pane {
+    display: none;
+  }
+  
+  .tab-pane.active {
+    display: block;
+  }
+  .tab-pane{
+    width: auto;
+  }
+
+
+  /* end style tabs */
+  .body-info {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    transition: all 600ms ease-out;
+  }
+  .sessao-grafico{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    max-width: 100%;
+    min-width: 25%;
+    padding: 0px;
+  }
+
+  /* Estilos para telas menores que 768px (por exemplo, smartphones) */
+@media (max-width: 768px) {
+    .container-paciente-profile {
+      max-width: 100%; /* Aumenta a largura máxima para preencher a tela */
+      padding: 0.5em; /* Reduz o espaçamento interno */
+    }
+    .custom-tab-btn {
+      font-size: 17px;
+      text-transform: uppercase;
+      text-decoration: none;
+      padding: .4em 1.2em;
+    }
+    .sessao-grafico{
+      width: 100%;
+    }
+    .header-container {
+      flex-wrap: wrap;
+      padding: 2em ;
+      margin-bottom: -1.5em;
+      margin-left:7em ;
+      gap: 0em;
+    }
+  
+    .tag {
+      border-radius: 20px;
+      font-size: 11px;
+      padding: 1em ;
+    }  
+    .body-stats {
+      font-size: 12px;
+      font-weight: 700;
+      margin: .2em 0 0 0;
+      padding-top: .2em;
+      position: relative;
+      text-transform: uppercase;
+      width: 100%;
+    }
+  
+    /* Outros ajustes de estilo ... */
+  }
+  @media (max-width: 480px) {
+    .container-paciente-profile {
+      max-width: 100%; /* Aumenta a largura máxima para preencher a tela */
+      padding: 0.5em; /* Reduz o espaçamento interno */
+    }
+    .custom-tab-btn {
+      font-size: 14px;
+      text-transform: uppercase;
+      text-decoration: none;
+      padding: .3em 1em;
+    }
+    .sessao-grafico{
+      width: 100%;
+    }
+    .header-container{
+
+    }
+    .tag {
+      border-radius: 20px;
+      font-size: 11px;
+      padding: 1em;
+    }  
+    /* .body-stats {
+      display: inline-block;
+      font-size: 12px;
+      font-weight: 700;
+      margin: -10px 0  0 15px;
+      position: relative;
+      text-transform: uppercase;
+      width: 25%;
+    } */
+  
+    /* Outros ajustes de estilo ... */
+  }
+  
+  

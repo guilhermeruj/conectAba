@@ -6,7 +6,7 @@ import UserCard from '../../components/UserCard';
 
 function UserProfile() {
   return (
-    <div className="layout-page">
+    <div className="container-layout">
 
       <div className="container-left">
         <SidebarMenu/>

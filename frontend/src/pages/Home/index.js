@@ -3,7 +3,7 @@ import UserCard from '../../components/UserCard';
 
 function HomePage() {
   return (
-    <div className="layout-page">
+    <div className="container-layout">
       <div className="container-left">
         <SidebarMenu/>
       </div>
