@@ -38,17 +38,26 @@ function Register(){
         <div className='container-register '> 
             <div className='card-register style-cards'>
                 <form className='row' onSubmit={handleSubmit}>
-                    <h5 className='col-12 text-center form-label'>Formulário de Cadastro</h5>
-                    <div className='col-6'>
+                    <h5 className='col-md-12 text-center form-label mb-4'>Formulário de Cadastro</h5>
+                    <div className='col-md-4'>
                     <Inputs
-                        label="Nome Completo:"
+                        label="Nome:"
                         type="text"
                         name="name"
                         placeholder="Digite o nome completo"
                         handleOnChange={handleOnChange}
                     />
                     </div>
-                    <div className='col-6'>
+                    <div className='col-md-4'>
+                    <Inputs
+                        label="Sobrenome:"
+                        type="text"
+                        name="sobrenome"
+                        placeholder="Digite o sobrenome"
+                        handleOnChange={handleOnChange}
+                    />
+                    </div>
+                    <div className='col-md-4'>
                     <Inputs
                         label="Email:"
                         type="email"
@@ -57,7 +66,7 @@ function Register(){
                         handleOnChange={handleOnChange}
                     />
                     </div>
-                    <div className='col-4'>
+                    <div className='col-md-4'>
                     <Inputs
                         label="CPF:"
                         type="text"
@@ -67,7 +76,7 @@ function Register(){
                         mask="999.999.999-99"
                     />
                     </div>
-                    <div className='col-4'>
+                    <div className='col-md-4'>
                     <Inputs
                         label="RG:"
                         type="number"
@@ -76,9 +85,11 @@ function Register(){
                         handleOnChange={handleOnChange}
                         mask="99.999.999-9"
                     />
+                    <span  style={{ color: '#a5a5a5', fontSize: '12px' }}>Estados de <span style={{ color: 'red',fontSize: '14px' }}>SP</span> e <span style={{ color: 'red', fontSize: '14px' }}>RJ</span> ainda contam com dígito verificador, totalizando <span style={{ color: 'red', fontSize: '14px' }}>9</span> dígitos.</span>
+
                     </div>
                     
-                    <div className='col-4'>
+                    <div className='col-md-4'>
                     <Inputs
                         label="CNPJ:"
                         type="number"
@@ -88,8 +99,8 @@ function Register(){
                         mask="99.999.999/9999-99"
                     />
                     </div>
-                    <div className='col-12'><hr/></div>
-                    <div className='col-6'>
+                    <div className='col-md-12'><hr/></div>
+                    <div className='col-md-6'>
                     <Inputs
                         label="Telefone Pessoal:"
                         type="number"
@@ -98,7 +109,7 @@ function Register(){
                         handleOnChange={handleOnChange}
                     />
                     </div>
-                    <div className='col-6'>
+                    <div className='col-md-6'>
                     <Inputs
                         label="Telefone Emergência:"
                         type="number"
@@ -108,22 +119,27 @@ function Register(){
                     />
                     </div>
                 
-                    <div className='col-12'>
+                    <div className='col-md-12'>
                     <hr />
                     <Select
                         label="Nível de acesso:"
                         name="nivel"
                         options={[
-                            { value: "administrador", label: "Administrador" },
-                            { value: "graficos", label: "Gráficos" },
-                            { value: "at", label: "AT" },
+                            { value: "diretor", label: "Diretor Master" },
+                            { value: "graficos", label: "Monitor Gráficos" },
+                            { value: "at", label: "Aplicador Terapêutico" },
+                            { value: "superisor", label: "Supervisor" },
+                            { value: "coordenador", label: "Coordenador" },
+                            { value: "at", label: "Aplicador Terapêutico" },
+                            { value: "administrativo", label: "Administrativo" },
+                            { value: "financeiro", label: "Financeiro" },
                         ]}
                         onChange={handleOnChange}
                         value={user.nivel}
                     />
                     <hr/>
                     </div>
-                    <div className='col-6'>  
+                    <div className='col-md-6'>  
                     <Inputs
                         label="Senha:"
                         type="password"
@@ -132,7 +148,7 @@ function Register(){
                         handleOnChange={handleOnChange}
                     />
                     </div>  
-                    <div className='col-6'> 
+                    <div className='col-md-6'> 
                     <Inputs
                         label="Confirme a senha:"
                         type="password"
@@ -141,7 +157,7 @@ function Register(){
                         handleOnChange={handleOnChange}
                     />
                     </div>
-                    <div className="col-12 mt-4">
+                    <div className="col-md-12 mt-4">
                         <div className="d-flex justify-content-center">
                             <div className="col-md-12">
                                 <Inputs type="submit" value="Cadastrar" className="botao-btn"/> 
