@@ -2,29 +2,31 @@ import React from 'react';
 import './abaAdicionaisModules.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
-const dadosDoBancoDeDados = [
-  {
-    categoria: 'Diploma',
-    nomeDado: 'Psicologia',
-    descricaoDado: 'Descrição do dado 1',
-    arquivoUpado: 'arquivo1.pdf',
-  },
-  {
-    categoria: 'Certificado',
-    nomeDado: 'Analista Comportamental',
-    descricaoDado: 'Descrição do dado 2',
-    arquivoUpado: 'arquivo2.docx',
-  },
-  {
-    categoria: 'Contratos',
-    nomeDado: 'Nome/Título do dado 3',
-    descricaoDado: 'Descrição do dado 3',
-    arquivoUpado: 'arquivo2.docx',
-  },
-  // Adicione mais objetos para mais dados do banco de dados, se necessário
-];
 
 function AbaDadosAdicionais() {
+
+  const dadosDoBancoDeDados = [
+    {
+      categoria: 'Diploma',
+      nomeDado: 'Psicologia',
+      descricaoDado: 'Descrição do dado 1',
+      arquivoUpado: 'arquivo1.pdf',
+    },
+    {
+      categoria: 'Certificado',
+      nomeDado: 'Analista Comportamental',
+      descricaoDado: 'Descrição do dado 2',
+      arquivoUpado: 'arquivo2.docx',
+    },
+    {
+      categoria: 'Contratos',
+      nomeDado: 'Nome/Título do dado 3',
+      descricaoDado: 'Descrição do dado 3',
+      arquivoUpado: 'arquivo2.docx',
+    },
+    // Adicione mais objetos para mais dados do banco de dados, se necessário
+  ];
+  
   return (
     <div className="row  profile-adicional-container">
       {dadosDoBancoDeDados.map((dado, index) => (

@@ -3,6 +3,7 @@ import './PacienteModules.css';
 import api from '../../utils/api';
 import useFlashMessage from '../../hooks/useFlashMessage';
 import RadarChart from '../RadarGrafico';
+import AnamneseForm from '../AnamneseForm';
 
 
 function PacienteProfile(){
@@ -173,11 +174,12 @@ function PacienteProfile(){
                         <div id="dados" className={`tab-pane ${activeTab === 'dados' ? 'active' : ''}`}>
                             {/* Conteúdo da aba de Dados */}
                             <h1>Mais dados</h1>
+                            
                         </div>
 
                         <div id="outros" className={`tab-pane ${activeTab === 'outros' ? 'active' : ''}`}>
                             {/* Conteúdo da aba de Outros */}
-                            <h1>Outros dados</h1>
+                            <AnamneseForm/>
                         </div>
                     </div>
                 </div>
