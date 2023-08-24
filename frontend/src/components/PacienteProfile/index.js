@@ -2,8 +2,30 @@ import React, { useState, useEffect } from 'react';
 import './PacienteModules.css';
 import api from '../../utils/api';
 import useFlashMessage from '../../hooks/useFlashMessage';
+import { IoIosArrowDropleft, IoIosArrowDropright } from "react-icons/io";
+
+// Components
 import RadarChart from '../RadarGrafico';
 import AnamneseForm from '../AnamneseForm';
+import FormIdentificacao from '../FormulariosAnamnese/0-FormIdentifacacao';
+import FormIdentCrianca from '../FormulariosAnamnese/1-FormIdentCrianca';
+import FormIdentPai from '../FormulariosAnamnese/1.1-FormIdentPai';
+import FormIdentMae from '../FormulariosAnamnese/1.2-FormIdentMae';
+import FormCasal from '../FormulariosAnamnese/1.3-FormInfosMaePai';
+import FormTratamento from '../FormulariosAnamnese/2-FormProcuraTratamento';
+import FormConcepcao from '../FormulariosAnamnese/3-FormConcepcao';
+import FormGestacao from '../FormulariosAnamnese/4-FormGestacao';
+import FormConditionsNascimento from '../FormulariosAnamnese/5-FormCondiNascimento';
+import FormDevSono from '../FormulariosAnamnese/6.1-FormSono';
+import FormDevAlimentacao from '../FormulariosAnamnese/6.2-FormAlimentacao';
+import FormDevPsicomotor from '../FormulariosAnamnese/6.3-FormPsicomotor';
+import FormDevTiques from '../FormulariosAnamnese/6.5-FormTiques';
+import FormDevSexualidade from '../FormulariosAnamnese/6.6-FormSexualidade';
+import FormDevEscolar from '../FormulariosAnamnese/6.7-FormEscolaridade';
+import FormDevSociabilidade from '../FormulariosAnamnese/6.8-FormSociabilidade';
+import FormDevReacoesEmocionais from '../FormulariosAnamnese/6.9-FormEmocionais';
+import FormDoencas from '../FormulariosAnamnese/7-FormDoencas';
+import FormHistoricoFamiliar from '../FormulariosAnamnese/8-FormHistoricoFami';
 
 
 function PacienteProfile(){
@@ -115,6 +137,25 @@ function PacienteProfile(){
     const chartLabels = ['Label 1', 'Label 2', 'Label 3', 'Label 4', 'Label 5', 'Label 6'];
     const [activeTab, setActiveTab] = useState('grafico');
 
+
+    // Paginatio Components
+    const [currentPage, setCurrentPage] = useState(0);
+    const componentGroups = [
+      // Agrupe os componentes por página
+      [FormIdentificacao], [FormIdentCrianca],[FormIdentPai],[FormIdentMae],[FormCasal ],[FormTratamento],[FormConcepcao],[FormGestacao],[FormConditionsNascimento],[FormDevSono],[FormDevAlimentacao],[FormDevPsicomotor],[FormDevTiques],[FormDevSexualidade],[FormDevEscolar],[FormDevSociabilidade],[FormDevReacoesEmocionais],[FormDoencas],[FormHistoricoFamiliar]
+    ];
+  
+    const currentComponents = componentGroups[currentPage] || [];
+
+    const handlePrevPage = () => {
+      setCurrentPage(Math.max(currentPage - 1, 0));
+    };
+  
+    const handleNextPage = () => {
+      setCurrentPage(Math.min(currentPage + 1, componentGroups.length - 1));
+    };  
+
+
     return (
         <div className="container-paciente-profile">
             <div className="header-container ">
@@ -151,9 +192,14 @@ function PacienteProfile(){
                             Dados
                             </a>
                         </li>
+                        <li className={activeTab === 'anamnese' ? 'active' : ''}>
+                            <a className="custom-tab-btn" href="#anamnese" onClick={() => setActiveTab('anamnese')}>
+                            Anamnese
+                            </a>
+                        </li>
                         <li className={activeTab === 'outros' ? 'active' : ''}>
                             <a className="custom-tab-btn" href="#outros" onClick={() => setActiveTab('outros')}>
-                            Outros
+                            Dados
                             </a>
                         </li>
                     </ul>
@@ -177,10 +223,59 @@ function PacienteProfile(){
                             
                         </div>
 
-                        <div id="outros" className={`tab-pane ${activeTab === 'outros' ? 'active' : ''}`}>
+                        <div id="anamnese" className={`tab-pane ${activeTab === 'anamnese' ? 'active' : ''}`}>
                             {/* Conteúdo da aba de Outros */}
                             <AnamneseForm/>
                         </div>
+
+
+                        <div id="outros" className={`tab-pane ${activeTab === 'outros' ? 'active' : ''}`}>
+
+                          {/* Conteúdo da aba de Outros */}
+                          {currentComponents.map((Component, index) => (
+                            <Component key={index} />
+                          ))}
+                          <div className="pagination-buttons">
+                          <button className="button-prev" onClick={handlePrevPage} disabled={currentPage === 0}>
+                              <span>
+                                {" "}
+                                <IoIosArrowDropleft className="icon-prev"/>
+                              </span>{" "}
+                            </button>
+                            {/* Adicione o contador de páginas */}
+                            <div className="pagination-count">
+                            Página {currentPage + 1} de {componentGroups.length}
+                            </div>
+                            <button className="button-next" onClick={handleNextPage} disabled={currentPage === componentGroups.length - 1}>
+                              <span>
+                                {" "}
+                                <IoIosArrowDropright className="icon-next" />
+                              </span>{" "}
+                            </button>
+                          </div>
+                        </div>
+
+                        {/* <div id="outros" className={`tab-pane ${activeTab === 'outros' ? 'active' : ''}`}>
+                            <FormIdentificacao/>
+                            <FormIdentCrianca/>
+                            <FormIdentPai/>
+                            <FormIdentMae/>
+                            <FormCasal/>
+                            <FormTratamento/>
+                            <FormConcepcao/>
+                            <FormGestacao/>
+                            <FormConditionsNascimento/>
+                            <FormDevSono/>
+                            <FormDevAlimentacao/>
+                            <FormDevPsicomotor/>
+                            <FormDevTiques/>
+                            <FormDevSexualidade/>
+                            <FormDevEscolar/>
+                            <FormDevSociabilidade/>
+                            <FormDevReacoesEmocionais/>
+                            <FormDoencas/>
+                            <FormHistoricoFamiliar/>
+                        </div> */}
                     </div>
                 </div>
             </div>

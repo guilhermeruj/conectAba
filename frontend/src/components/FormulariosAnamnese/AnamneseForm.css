@@ -1,0 +1,128 @@
+/* Input container */
+.input-container {
+    position: relative;
+    margin: 1em ;
+  }
+  
+  /* Input field */
+  .input-field {
+    display: block;
+    width: 100%;
+    padding: .3em;
+    font-size: 16px;
+    border: none;
+    border-bottom: 2px solid #ccc;
+    outline: none;
+    background-color: transparent;
+  }
+  
+  /* Input label */
+  .input-label {
+    position: absolute;
+    top: 0;
+    left: 0;
+    font-size: 16px;
+    color: rgba(204, 204, 204, 0);
+    pointer-events: none;
+    transition: all 0.3s ease;
+  }
+  
+  /* Input highlight */
+  .input-highlight {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 2px;
+    width: 0;
+    background-color: #007bff;
+    transition: all 0.3s ease;
+  }
+  
+  /* Input field:focus styles */
+  .input-field:focus + .input-label {
+    top: -20px;
+    font-size: 12px;
+    color: #007bff;
+  }
+  
+  .input-field:focus + .input-label + .input-highlight {
+    width: 100%;
+  }
+  
+
+/* Estilos para os botões de opção */
+.radio-group {
+    display: flex;
+    gap: 10px;
+    margin-top: 10px;
+  }
+  
+  .radio-label {
+    position: relative;
+    font-size: 16px;
+    color: #000;
+    cursor: pointer;
+    transition: color 0.3s ease;
+    display: flex; /* Adicione isso para alinhar os botões de opção */
+    align-items: center; /* Adicione isso para alinhar os botões de opção */
+  }
+  
+  .radio-button {
+    display: inline-block;
+    width: 18px;
+    height: 18px;
+    border: 2px solid #ccc;
+    border-radius: 50%;
+    margin-right: 5px;
+  }
+  
+  .radio-label input[type="radio"] {
+    display: none;
+  }
+  
+  .radio-label:hover {
+    color: #007bff;
+  }
+  
+  .radio-label input[type="radio"]:checked + .radio-button {
+    border-color: #007bff;
+  }
+
+
+  /* estilo para form-tabela */
+  .form-container {
+    padding: 1em;
+  }
+  
+  .custom-table {
+    width: 100%;
+    border-collapse: collapse;
+    border: 1px solid #f2f2f2;
+  }
+  
+  .custom-table th {
+    padding: 8px;
+    border: 1px solid #ccc;
+  }
+  
+  .custom-table th {
+    text-align: left;
+  }
+  .custom-table td{
+    text-align: center;
+  }
+  .custom-table td:hover{
+    background: #f1f1f1;
+    cursor: default;
+  }
+
+  .choice-yes {
+    color: #1ad486;
+  }
+  .choice-no {
+    color:#d41a52;
+  }
+  
+  
+
+    

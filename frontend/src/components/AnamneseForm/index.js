@@ -2722,7 +2722,7 @@ function AnamneseForm() {
 
         {/* Seção 6.6: DESENVOLVIMENTO */}
         <section className="row section">
-          <h5>6. Desenvolvimento - <span>6.6 SEXUALIDADE</span></h5>
+          <h5>6. Desenvolvimento - <span>6.6 Sexualidade</span></h5>
           {/* Subseções para informações de desenvolvimento */}
           <div className="form-container">
             <table className="custom-table">
@@ -3011,7 +3011,7 @@ function AnamneseForm() {
 
       {/* 6.8- SOCIABILIDADE*/}
         <section className="row section-2">
-        <h5>6. Desenvolvimento - <span>6.7 Sociabilidade</span></h5>
+        <h5>6. Desenvolvimento - <span>6.8 Sociabilidade</span></h5>
           {/* Campos para informações de tratamento */}
             <div className=" col-md-12 input-container">
             <span>A mãe / pai o deixa trazer crianças para brincar em casa?</span>

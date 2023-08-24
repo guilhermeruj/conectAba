@@ -1,5 +1,5 @@
 .profile-header {
-  background: #fff;
+  background: #005AAD;
   width: 100%;
   display: flex;
   height: auto;
@@ -63,8 +63,8 @@
 }
 
 .profile-side {
-  width: 400px;
-  height: 100%;
+  width:400px;
+  height: auto;
   background: #fff;
   margin-left: .5em;
   border-right:.1em solid #ebe5ff ;

@@ -70,7 +70,7 @@ function Perfil() {
         <div className="left-side">
           <div className="profile-side">
             <div className="conteudo-side mt-5">
-              <p className="">
+              <p>
                 <IoIosPhonePortrait className=""/> {userData.fone}
               </p>
 
